@@ -11,4 +11,16 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.quan_ly_kho.Quan_ly_kho</exec.mainClass>
     </properties>
+    <dependencies>
+           <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>12.8.1.jre11</version>
+         </dependency>
+          <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
+    </dependencies>
 </project>
