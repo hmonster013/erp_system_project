@@ -5,7 +5,7 @@
 package com.mycompany.Controller;
 
 import com.mycompany.Model.SanPhamModel;
-import com.mycompany.View.fNhapSanPham;
+import com.mycompany.View.pNhapSanPham;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -17,13 +17,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Khoahihi79
  */
 public class NhapKhoSanPhamController {
-    private fNhapSanPham form;
+    private pNhapSanPham form;
     private SanPhamModel sanPhamModel;
     private DefaultTableModel tableTonKho;
     
     public NhapKhoSanPhamController() {}
     
-    public NhapKhoSanPhamController(fNhapSanPham form) {
+    public NhapKhoSanPhamController(pNhapSanPham form) {
         this.form = form;
         this.sanPhamModel = new SanPhamModel();
         createTableTonKho();

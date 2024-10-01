@@ -15,7 +15,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
            initComponents();  // Gọi initComponents() trước
-        fNhapSanPham form = new fNhapSanPham();  // Tạo đối tượng của JPanel
+        pNhapSanPham form = new pNhapSanPham();  // Tạo đối tượng của JPanel
         form.setSize(1100, 700);  // Đặt kích thước cho JPanel
         form.setVisible(true);   // Đảm bảo JPanel hiển thị
         add(form);  // Thêm JPanel vào JFrame
