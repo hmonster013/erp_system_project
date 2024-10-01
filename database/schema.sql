@@ -20,7 +20,7 @@ CREATE TABLE ThongTinNhanVien (
 
 -- Bảng Tài khoản
 CREATE TABLE TaiKhoan (
-    Usename VARCHAR(20) PRIMARY KEY,
+    Username VARCHAR(20) PRIMARY KEY,
     Password VARCHAR(20),
     MaNV VARCHAR(10),
     FOREIGN KEY (MaNV) REFERENCES ThongTinNhanVien(MaNV)
