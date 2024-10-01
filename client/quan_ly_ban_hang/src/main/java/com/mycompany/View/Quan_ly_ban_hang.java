@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.quan_ly_ban_hang;
+package com.mycompany.View;
 
 /**
  *
