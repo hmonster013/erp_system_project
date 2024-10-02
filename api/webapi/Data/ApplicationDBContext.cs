@@ -120,7 +120,7 @@ public partial class ApplicationDBContext : DbContext
     {
         modelBuilder.Entity<BacLuong>(entity =>
         {
-            entity.HasKey(e => e.MaBl).HasName("PK__BacLuong__272475AF73A2E866");
+            entity.HasKey(e => e.MaBl).HasName("PK__BacLuong__272475AFE732C0E3");
 
             entity.ToTable("BacLuong");
 
@@ -135,7 +135,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<BaoHiem>(entity =>
         {
-            entity.HasKey(e => e.MaBaoHiem).HasName("PK__BaoHiem__AACE9D8873BD39AD");
+            entity.HasKey(e => e.MaBaoHiem).HasName("PK__BaoHiem__AACE9D88FDF0F71B");
 
             entity.ToTable("BaoHiem");
 
@@ -163,7 +163,7 @@ public partial class ApplicationDBContext : DbContext
                         .HasConstraintName("FK__NV_BaoHie__MaBao__571DF1D5"),
                     j =>
                     {
-                        j.HasKey("MaBaoHiem", "MaNv").HasName("PK__NV_BaoHi__18BCC0F803F97A27");
+                        j.HasKey("MaBaoHiem", "MaNv").HasName("PK__NV_BaoHi__18BCC0F8088EE683");
                         j.ToTable("NV_BaoHiem");
                         j.IndexerProperty<string>("MaBaoHiem")
                             .HasMaxLength(10)
@@ -177,7 +177,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<BoPhan>(entity =>
         {
-            entity.HasKey(e => e.MaBp).HasName("PK__BoPhan__272475ABF0EF58EE");
+            entity.HasKey(e => e.MaBp).HasName("PK__BoPhan__272475AB7875D471");
 
             entity.ToTable("BoPhan");
 
@@ -197,7 +197,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<ChienDich>(entity =>
         {
-            entity.HasKey(e => e.MaCd).HasName("PK__ChienDic__27258E04E6C30140");
+            entity.HasKey(e => e.MaCd).HasName("PK__ChienDic__27258E040362CBB3");
 
             entity.ToTable("ChienDich");
 
@@ -224,7 +224,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<ChinhSach>(entity =>
         {
-            entity.HasKey(e => e.MaChinhSach).HasName("PK__ChinhSac__82663E30A3133706");
+            entity.HasKey(e => e.MaChinhSach).HasName("PK__ChinhSac__82663E308116AC0F");
 
             entity.ToTable("ChinhSach");
 
@@ -252,7 +252,7 @@ public partial class ApplicationDBContext : DbContext
                         .HasConstraintName("FK__NV_ChinhS__MaChi__5EBF139D"),
                     j =>
                     {
-                        j.HasKey("MaChinhSach", "MaNv").HasName("PK__NV_Chinh__3014634039E68722");
+                        j.HasKey("MaChinhSach", "MaNv").HasName("PK__NV_Chinh__3014634062917A19");
                         j.ToTable("NV_ChinhSach");
                         j.IndexerProperty<string>("MaChinhSach")
                             .HasMaxLength(10)
@@ -266,7 +266,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<ChucVu>(entity =>
         {
-            entity.HasKey(e => e.MaCv).HasName("PK__ChucVu__27258E766DE51DFE");
+            entity.HasKey(e => e.MaCv).HasName("PK__ChucVu__27258E7632C5B08C");
 
             entity.ToTable("ChucVu");
 
@@ -290,7 +290,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<Cong>(entity =>
         {
-            entity.HasKey(e => new { e.MaNv, e.ThangNam }).HasName("PK__Cong__9A69E44415725560");
+            entity.HasKey(e => new { e.MaNv, e.ThangNam }).HasName("PK__Cong__9A69E4444297F712");
 
             entity.ToTable("Cong");
 
@@ -318,7 +318,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtHoaDon>(entity =>
         {
-            entity.HasKey(e => new { e.MaHd, e.MaSp }).HasName("PK__CT_HoaDo__F557F6616D3141AB");
+            entity.HasKey(e => new { e.MaHd, e.MaSp }).HasName("PK__CT_HoaDo__F557F66116767369");
 
             entity.ToTable("CT_HoaDon");
 
@@ -344,7 +344,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtdonDh>(entity =>
         {
-            entity.HasKey(e => new { e.MaDdh, e.MaSp }).HasName("PK__CTDonDH__EFFA9885ABB59639");
+            entity.HasKey(e => new { e.MaDdh, e.MaSp }).HasName("PK__CTDonDH__EFFA98856DE8980C");
 
             entity.ToTable("CTDonDH");
 
@@ -370,7 +370,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtphieuHoan>(entity =>
         {
-            entity.HasKey(e => new { e.MaPh, e.MaSp }).HasName("PK__CTPhieuH__F557B77B8FC789B0");
+            entity.HasKey(e => new { e.MaPh, e.MaSp }).HasName("PK__CTPhieuH__F557B77B6506E223");
 
             entity.ToTable("CTPhieuHoan");
 
@@ -399,7 +399,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtphieuNghiemThu>(entity =>
         {
-            entity.HasKey(e => new { e.MaPnt, e.SoLo }).HasName("PK__CTPhieuN__F1202B3EE13BE568");
+            entity.HasKey(e => new { e.MaPnt, e.SoLo }).HasName("PK__CTPhieuN__F1202B3E548D4135");
 
             entity.ToTable("CTPhieuNghiemThu");
 
@@ -428,7 +428,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtphieuNhapNvl>(entity =>
         {
-            entity.HasKey(e => new { e.MaPnnvl, e.MaNvl }).HasName("PK__CTPhieuN__2468742DB41E69CA");
+            entity.HasKey(e => new { e.MaPnnvl, e.MaNvl }).HasName("PK__CTPhieuN__2468742D11EA1AD7");
 
             entity.ToTable("CTPhieuNhapNVL");
 
@@ -461,7 +461,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtphieuXuatNvl>(entity =>
         {
-            entity.HasKey(e => new { e.MaPxnvl, e.MaNvl }).HasName("PK__CTPhieuX__F590FDE64026450F");
+            entity.HasKey(e => new { e.MaPxnvl, e.MaNvl }).HasName("PK__CTPhieuX__F590FDE6CB001C49");
 
             entity.ToTable("CTPhieuXuatNVL");
 
@@ -487,7 +487,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtphieuXuatSp>(entity =>
         {
-            entity.HasKey(e => new { e.MaPxsp, e.MaSp }).HasName("PK__CTPhieuX__9CD235C5FB6A790C");
+            entity.HasKey(e => new { e.MaPxsp, e.MaSp }).HasName("PK__CTPhieuX__9CD235C5DC71CA7D");
 
             entity.ToTable("CTPhieuXuatSP");
 
@@ -513,7 +513,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtphieuYcsx>(entity =>
         {
-            entity.HasKey(e => new { e.MaYc, e.MaSp }).HasName("PK__CTPhieuY__F55161A4C847C545");
+            entity.HasKey(e => new { e.MaYc, e.MaSp }).HasName("PK__CTPhieuY__F55161A4ECC567C3");
 
             entity.ToTable("CTPhieuYCSX");
 
@@ -540,7 +540,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<CtpnhangHoan>(entity =>
         {
-            entity.HasKey(e => new { e.MaPnhh, e.MaSp }).HasName("PK__CTPNHang__62E323D837A20CE0");
+            entity.HasKey(e => new { e.MaPnhh, e.MaSp }).HasName("PK__CTPNHang__62E323D8C768D647");
 
             entity.ToTable("CTPNHangHoan");
 
@@ -566,7 +566,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<DanhMucChi>(entity =>
         {
-            entity.HasKey(e => e.MaDmt).HasName("PK__DanhMucC__3D8821A16B5F3440");
+            entity.HasKey(e => e.MaDmt).HasName("PK__DanhMucC__3D8821A180BBD08C");
 
             entity.ToTable("DanhMucChi");
 
@@ -582,7 +582,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<DanhMucThu>(entity =>
         {
-            entity.HasKey(e => e.MaDmt).HasName("PK__DanhMucT__3D8821A1A39116B5");
+            entity.HasKey(e => e.MaDmt).HasName("PK__DanhMucT__3D8821A18FDA14F9");
 
             entity.ToTable("DanhMucThu");
 
@@ -598,7 +598,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<DonDh>(entity =>
         {
-            entity.HasKey(e => e.MaDdh).HasName("PK__DonDH__3D88C80487E71498");
+            entity.HasKey(e => e.MaDdh).HasName("PK__DonDH__3D88C8047574DB74");
 
             entity.ToTable("DonDH");
 
@@ -629,7 +629,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<HinhAnhQc>(entity =>
         {
-            entity.HasKey(e => e.MaAnhQc).HasName("PK__HinhAnhQ__B99466BFB66C4EBF");
+            entity.HasKey(e => e.MaAnhQc).HasName("PK__HinhAnhQ__B99466BF82A102F9");
 
             entity.ToTable("HinhAnhQC");
 
@@ -663,7 +663,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<HoaDon>(entity =>
         {
-            entity.HasKey(e => e.MaHd).HasName("PK__HoaDon__2725A6E0DA0A54C7");
+            entity.HasKey(e => e.MaHd).HasName("PK__HoaDon__2725A6E0C911187D");
 
             entity.ToTable("HoaDon");
 
@@ -696,7 +696,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<HopDong>(entity =>
         {
-            entity.HasKey(e => e.MaHopDong).HasName("PK__HopDong__36DD4342A7B972C8");
+            entity.HasKey(e => e.MaHopDong).HasName("PK__HopDong__36DD4342CD79AAA4");
 
             entity.ToTable("HopDong");
 
@@ -719,7 +719,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<KhachHang>(entity =>
         {
-            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1EF0E73A80");
+            entity.HasKey(e => e.MaKh).HasName("PK__KhachHan__2725CF1EF029CD2B");
 
             entity.ToTable("KhachHang");
 
@@ -745,7 +745,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<LoSanPham>(entity =>
         {
-            entity.HasKey(e => e.SoLo).HasName("PK__LoSanPha__BC3CCBED58A5B31B");
+            entity.HasKey(e => e.SoLo).HasName("PK__LoSanPha__BC3CCBEDDCA75460");
 
             entity.ToTable("LoSanPham");
 
@@ -775,7 +775,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<LoaiKh>(entity =>
         {
-            entity.HasKey(e => e.MaLoaiKh).HasName("PK__LoaiKH__12250B7E9944AE99");
+            entity.HasKey(e => e.MaLoaiKh).HasName("PK__LoaiKH__12250B7EB726C365");
 
             entity.ToTable("LoaiKH");
 
@@ -791,7 +791,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<LoaiSp>(entity =>
         {
-            entity.HasKey(e => e.MaLoai).HasName("PK__LoaiSP__730A5759D2676110");
+            entity.HasKey(e => e.MaLoai).HasName("PK__LoaiSP__730A5759E487DB68");
 
             entity.ToTable("LoaiSP");
 
@@ -805,7 +805,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<MauMaSp>(entity =>
         {
-            entity.HasKey(e => e.MaAnhSp).HasName("PK__MauMaSP__B994756026AF637F");
+            entity.HasKey(e => e.MaAnhSp).HasName("PK__MauMaSP__B9947560E7785731");
 
             entity.ToTable("MauMaSP");
 
@@ -839,7 +839,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<NguyenVatLieu>(entity =>
         {
-            entity.HasKey(e => e.MaNvl).HasName("PK__NguyenVa__3A197864F3DCE0D4");
+            entity.HasKey(e => e.MaNvl).HasName("PK__NguyenVa__3A1978648C2912C8");
 
             entity.ToTable("NguyenVatLieu");
 
@@ -858,7 +858,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<NhaCungCap>(entity =>
         {
-            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEB482509BC");
+            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEB6853C8B7");
 
             entity.ToTable("NhaCungCap");
 
@@ -884,7 +884,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuChi>(entity =>
         {
-            entity.HasKey(e => e.MaPhieuChi).HasName("PK__PhieuChi__00AC0F1931E45567");
+            entity.HasKey(e => e.MaPhieuChi).HasName("PK__PhieuChi__00AC0F1959FD1717");
 
             entity.ToTable("PhieuChi");
 
@@ -914,7 +914,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuChiCongNo>(entity =>
         {
-            entity.HasKey(e => e.MaPccn).HasName("PK__PhieuChi__54B176FD90D20CEC");
+            entity.HasKey(e => e.MaPccn).HasName("PK__PhieuChi__54B176FDCEF7A0F6");
 
             entity.ToTable("PhieuChiCongNo");
 
@@ -945,7 +945,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuHoan>(entity =>
         {
-            entity.HasKey(e => e.MaPh).HasName("PK__PhieuHoa__2725E7FAD09D9AD5");
+            entity.HasKey(e => e.MaPh).HasName("PK__PhieuHoa__2725E7FA687CB76A");
 
             entity.ToTable("PhieuHoan");
 
@@ -973,7 +973,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuNghiemThu>(entity =>
         {
-            entity.HasKey(e => e.MaPnt).HasName("PK__PhieuNgh__3AE3E7809E2E5DD8");
+            entity.HasKey(e => e.MaPnt).HasName("PK__PhieuNgh__3AE3E78074079AF6");
 
             entity.ToTable("PhieuNghiemThu");
 
@@ -1003,7 +1003,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuNhapNvl>(entity =>
         {
-            entity.HasKey(e => e.MaPnnvl).HasName("PK__PhieuNha__77C9E3ABB2415B39");
+            entity.HasKey(e => e.MaPnnvl).HasName("PK__PhieuNha__77C9E3AB7B6D78BB");
 
             entity.ToTable("PhieuNhapNVL");
 
@@ -1039,7 +1039,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuNhapSp>(entity =>
         {
-            entity.HasKey(e => e.MaPnsp).HasName("PK__PhieuNha__B0913A688B0D8DC9");
+            entity.HasKey(e => e.MaPnsp).HasName("PK__PhieuNha__B0913A6836DF2951");
 
             entity.ToTable("PhieuNhapSP");
 
@@ -1069,7 +1069,7 @@ public partial class ApplicationDBContext : DbContext
                         .HasConstraintName("FK__CTPhieuNh__MaPNS__3E1D39E1"),
                     j =>
                     {
-                        j.HasKey("MaPnsp", "SoLo").HasName("PK__CTPhieuN__7B52F6D69781E4A2");
+                        j.HasKey("MaPnsp", "SoLo").HasName("PK__CTPhieuN__7B52F6D614ADF8EA");
                         j.ToTable("CTPhieuNhapSP");
                         j.IndexerProperty<string>("MaPnsp")
                             .HasMaxLength(10)
@@ -1083,7 +1083,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuThu>(entity =>
         {
-            entity.HasKey(e => e.MaPhieuThu).HasName("PK__PhieuThu__1D8B9C69960976E4");
+            entity.HasKey(e => e.MaPhieuThu).HasName("PK__PhieuThu__1D8B9C695CEFE648");
 
             entity.ToTable("PhieuThu");
 
@@ -1113,7 +1113,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuThuCongNo>(entity =>
         {
-            entity.HasKey(e => e.MaPtcn).HasName("PK__PhieuThu__B3095E358E4F4426");
+            entity.HasKey(e => e.MaPtcn).HasName("PK__PhieuThu__B3095E35E8017AA6");
 
             entity.ToTable("PhieuThuCongNo");
 
@@ -1144,7 +1144,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuXuatNvl>(entity =>
         {
-            entity.HasKey(e => e.MaPxnvl).HasName("PK__PhieuXua__A6316A60CB4023E8");
+            entity.HasKey(e => e.MaPxnvl).HasName("PK__PhieuXua__A6316A60E5F63BB7");
 
             entity.ToTable("PhieuXuatNVL");
 
@@ -1164,7 +1164,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuXuatSp>(entity =>
         {
-            entity.HasKey(e => e.MaPxsp).HasName("PK__PhieuXua__4EA0654467F4D4D6");
+            entity.HasKey(e => e.MaPxsp).HasName("PK__PhieuXua__4EA06544CB60BB32");
 
             entity.ToTable("PhieuXuatSP");
 
@@ -1192,7 +1192,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhieuYcsx>(entity =>
         {
-            entity.HasKey(e => e.MaYc).HasName("PK__PhieuYCS__2723312561AE6AEB");
+            entity.HasKey(e => e.MaYc).HasName("PK__PhieuYCS__2723312529DDA149");
 
             entity.ToTable("PhieuYCSX");
 
@@ -1215,7 +1215,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<Phieuktkl>(entity =>
         {
-            entity.HasKey(e => e.MaPhieuKtkl).HasName("PK__phieuktk__8F85A1C4DFC1CEF5");
+            entity.HasKey(e => e.MaPhieuKtkl).HasName("PK__phieuktk__8F85A1C4A0ED0C79");
 
             entity.ToTable("phieuktkl");
 
@@ -1239,7 +1239,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PhuCap>(entity =>
         {
-            entity.HasKey(e => e.MaPhuCap).HasName("PK__PhuCap__F97D9738E6E9F994");
+            entity.HasKey(e => e.MaPhuCap).HasName("PK__PhuCap__F97D973893AD3E07");
 
             entity.ToTable("PhuCap");
 
@@ -1267,7 +1267,7 @@ public partial class ApplicationDBContext : DbContext
                         .HasConstraintName("FK__NV_PhuCap__MaPhu__5AEE82B9"),
                     j =>
                     {
-                        j.HasKey("MaPhuCap", "MaNv").HasName("PK__NV_PhuCa__4B0FCA48740E79F3");
+                        j.HasKey("MaPhuCap", "MaNv").HasName("PK__NV_PhuCa__4B0FCA480A67CD5C");
                         j.ToTable("NV_PhuCap");
                         j.IndexerProperty<string>("MaPhuCap")
                             .HasMaxLength(10)
@@ -1281,7 +1281,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<PnhangHoan>(entity =>
         {
-            entity.HasKey(e => e.MaPnhh).HasName("PK__PNHangHo__B091735955EBAFE8");
+            entity.HasKey(e => e.MaPnhh).HasName("PK__PNHangHo__B091735961D306A9");
 
             entity.ToTable("PNHangHoan");
 
@@ -1309,7 +1309,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<QtcongTac>(entity =>
         {
-            entity.HasKey(e => e.MaQt).HasName("PK__QTCongTa__2725F85A0C25ACC1");
+            entity.HasKey(e => e.MaQt).HasName("PK__QTCongTa__2725F85AEB574041");
 
             entity.ToTable("QTCongTac");
 
@@ -1347,7 +1347,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<SanPham>(entity =>
         {
-            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081CCC750099");
+            entity.HasKey(e => e.MaSp).HasName("PK__SanPham__2725081C893E8C2C");
 
             entity.ToTable("SanPham");
 
@@ -1377,7 +1377,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<TaiKhoan>(entity =>
         {
-            entity.HasKey(e => e.Username).HasName("PK__TaiKhoan__536C85E5D8B17E99");
+            entity.HasKey(e => e.Username).HasName("PK__TaiKhoan__536C85E53A6348D2");
 
             entity.ToTable("TaiKhoan");
 
@@ -1399,7 +1399,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<ThongTinNhanVien>(entity =>
         {
-            entity.HasKey(e => e.MaNv).HasName("PK__ThongTin__2725D70A7CC393CA");
+            entity.HasKey(e => e.MaNv).HasName("PK__ThongTin__2725D70AC1C0BABB");
 
             entity.ToTable("ThongTinNhanVien");
 
@@ -1429,7 +1429,7 @@ public partial class ApplicationDBContext : DbContext
 
         modelBuilder.Entity<UuDai>(entity =>
         {
-            entity.HasKey(e => e.MaUuDai).HasName("PK__UuDai__9650302A508B97B9");
+            entity.HasKey(e => e.MaUuDai).HasName("PK__UuDai__9650302A8F9A0EFB");
 
             entity.ToTable("UuDai");
 
@@ -1453,7 +1453,7 @@ public partial class ApplicationDBContext : DbContext
                         .HasConstraintName("FK__UuDai_Chi__MaUuD__05D8E0BE"),
                     j =>
                     {
-                        j.HasKey("MaUuDai", "MaCd").HasName("PK__UuDai_Ch__C42268CA9F8C0A01");
+                        j.HasKey("MaUuDai", "MaCd").HasName("PK__UuDai_Ch__C42268CAF347CDA1");
                         j.ToTable("UuDai_ChienDich");
                         j.IndexerProperty<string>("MaUuDai")
                             .HasMaxLength(10)
@@ -1477,7 +1477,7 @@ public partial class ApplicationDBContext : DbContext
                         .HasConstraintName("FK__UuDai_Loa__MaUuD__02084FDA"),
                     j =>
                     {
-                        j.HasKey("MaUuDai", "MaLoaiKh").HasName("PK__UuDai_Lo__6772609DECF2DAC6");
+                        j.HasKey("MaUuDai", "MaLoaiKh").HasName("PK__UuDai_Lo__6772609DEC107529");
                         j.ToTable("UuDai_LoaiKH");
                         j.IndexerProperty<string>("MaUuDai")
                             .HasMaxLength(10)

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using webapi.Controllers;
 using webapi.Data;
+using webapi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +27,7 @@ builder.Services.AddScoped<ICtdonDhRepository, CtdonDhRepository>();
 builder.Services.AddScoped<ICtphieuHoanRepository, CtphieuHoanRepository>();
 builder.Services.AddScoped<ICtphieuNghiemThuRepository, CtphieuNghiemThuRepository>();
 builder.Services.AddScoped<ICtphieuNhapNvlRepository, CtphieuNhapNvlRepository>();
-builder.Services.AddScoped<ICtphieuXuatNvlRepository, CtphieuXuatNvlRepository>();
+builder.Services.AddScoped<ICtphieuXuatNvlRepository, CtphieuXuatNvlsRepository>();
 builder.Services.AddScoped<ICtphieuXuatSpRepository, CtphieuXuatSpRepository>();
 builder.Services.AddScoped<ICtphieuYcsxRepository, CtphieuYcsxRepository>();
 builder.Services.AddScoped<ICtpnhangHoanRepository, CtpnhangHoanRepository>();
