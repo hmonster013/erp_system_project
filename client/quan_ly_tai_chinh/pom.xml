@@ -11,4 +11,5 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.quan_ly_marketing.Quan_ly_marketing</exec.mainClass>
     </properties>
+    <name>quan_ly_taichinh</name>
 </project>
