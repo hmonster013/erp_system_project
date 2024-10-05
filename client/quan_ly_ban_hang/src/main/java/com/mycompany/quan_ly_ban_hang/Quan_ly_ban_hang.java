@@ -4,6 +4,8 @@
 
 package com.mycompany.quan_ly_ban_hang;
 
+import com.mycompany.View.fLogin;
+
 /**
  *
  * @author ACER
@@ -11,6 +13,7 @@ package com.mycompany.quan_ly_ban_hang;
 public class Quan_ly_ban_hang {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        fLogin test = new fLogin();
+        test.setVisible(true);
     }
 }

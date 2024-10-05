@@ -1,9 +1,3 @@
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using webapi.Dtos.TaiKhoan;
 using webapi.Models;
 
@@ -11,31 +5,23 @@ namespace webapi.Controllers
 {
     public static class TaiKhoanMappers
     {
-        public static ThongTinNhanVienDto ToThongTinNhanVienDto(this ThongTinNhanVien thongTinNhanVienModel)
+        public static TaiKhoanDto ToTaiKhoanDto(this TaiKhoan taiKhoanModel)
         {
-            return new ThongTinNhanVienDto
+            return new TaiKhoanDto
             {
-                MaNv = thongTinNhanVienModel.MaNv,
-                TenNv = thongTinNhanVienModel.TenNv,
-                GioiTinh = thongTinNhanVienModel.GioiTinh,
-                NgaySinh = thongTinNhanVienModel.NgaySinh,
-                QueQuan = thongTinNhanVienModel.QueQuan,
-                Sdt = thongTinNhanVienModel.Sdt,
-                Tdhv = thongTinNhanVienModel.Tdhv
+                Username = taiKhoanModel.Username,
+                Password = taiKhoanModel.Password,
+                MaNv = taiKhoanModel.MaNv
             };
         }
 
-        public static ThongTinNhanVien ToThongTinNhanVienFormCreateDTO(this CreateThongTinNhanVienRequestDto createThongTinNhanVienRequestDto)
+        public static TaiKhoan ToTaiKhoanFormCreateDTO(this CreateTaiKhoanRequestDto createTaiKhoanRequestDto)
         {
-            return new ThongTinNhanVien
+            return new TaiKhoan
             {
-                MaNv = createThongTinNhanVienRequestDto.MaNv,
-                TenNv = createThongTinNhanVienRequestDto.TenNv,
-                GioiTinh = createThongTinNhanVienRequestDto.GioiTinh,
-                NgaySinh = createThongTinNhanVienRequestDto.NgaySinh,
-                QueQuan = createThongTinNhanVienRequestDto.QueQuan,
-                Sdt = createThongTinNhanVienRequestDto.Sdt,
-                Tdhv = createThongTinNhanVienRequestDto.Tdhv
+                Username = createTaiKhoanRequestDto.Username,
+                Password = createTaiKhoanRequestDto.Password,
+                MaNv = createTaiKhoanRequestDto.MaNv
             };
         }
     }

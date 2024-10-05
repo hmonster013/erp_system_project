@@ -1,13 +1,29 @@
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using webapi.Dtos.LoaiSp; // Đảm bảo có đúng namespace cho DTO
+using webapi.Models;
 
 namespace webapi.Controllers
 {
-    public class LoaiSpMappers
+    public static class LoaiSpMapper
     {
+        // Chuyển đổi từ mô hình LoaiSp sang LoaiSpDto
+        public static LoaiSpDto ToLoaiSpDto(this LoaiSp loaiSpModel)
+        {
+            return new LoaiSpDto
+            {
+                MaLoai = loaiSpModel.MaLoai,
+                TenLoai = loaiSpModel.TenLoai
+            };
+        }
 
+        // Chuyển đổi từ CreateLoaiSpRequestDto sang mô hình LoaiSp
+        public static LoaiSp ToLoaiSpFormCreateDTO(this CreateLoaiSpRequestDto createLoaiSpRequestDto)
+        {
+            return new LoaiSp
+            {
+                MaLoai = createLoaiSpRequestDto.MaLoai,
+                TenLoai = createLoaiSpRequestDto.TenLoai
+            };
+        }
     }
 }

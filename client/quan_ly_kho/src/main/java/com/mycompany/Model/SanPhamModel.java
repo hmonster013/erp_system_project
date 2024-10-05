@@ -16,7 +16,6 @@ public class SanPhamModel {
     
     public SanPhamModel() {}
     
-    
     public boolean addCauHoi(String maSP, String tenSP, int soLuongTonKho) {
         try (Connection conn = new DBConnection().getConnection()) {
             if(conn != null) {

@@ -300,7 +300,9 @@ CREATE TABLE KhachHang (
     TenKH VARCHAR(255),
     Email VARCHAR(100),
     SDT VARCHAR(15),
-    DiaChi VARCHAR(255)
+    DiaChi VARCHAR(255),
+    MaLoaiKH VARCHAR(10),
+    FOREIGN KEY (MaLoaiKH) REFERENCES LoaiKH(MaLoaiKH)
 );
 
 -- Bảng Đơn đặt hàng

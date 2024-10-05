@@ -9,7 +9,7 @@ INSERT INTO ThongTinNhanVien (MaNV, TenNV, GioiTinh, NgaySinh, QueQuan, SDT, TDH
 ('NV008', 'Nguyen Thi H', 'Nu', '1994-08-08', 'Bac Ninh', '0123456785', 'Dai hoc'),
 ('NV009', 'Truong Van I', 'Nam', '1996-09-09', 'Thai Nguyen', '0123456786', 'Cao dang');
 
-INSERT INTO TaiKhoan (Usename, Password, MaNV) 
+INSERT INTO TaiKhoan (Username, Password, MaNV) 
 VALUES
 ('user001', 'pass001', 'NV001'),
 ('user002', 'pass002', 'NV002'),
@@ -265,7 +265,7 @@ INSERT INTO CTPhieuNghiemThu (MaPNT, SoLo, KetQuaNT) VALUES
 (N'PNT008', N'LO007', N'Khong dat'),
 (N'PNT009', N'LO008', N'Dat');
 
-INSERT INTO ChienDich (MaCD, TenCD, NgayBatDau, NgayKetThuc, MaNV) VALUES 
+/*INSERT INTO ChienDich (MaCD, TenCD, NgayBatDau, NgayKetThuc, MaNV) VALUES 
 (N'CD001', N'Chiến Dịch A', '2023-01-01', '2023-01-31', N'NV001'),
 (N'CD002', N'Chiến Dịch B', '2023-02-01', '2023-02-28', N'NV002'),
 (N'CD003', N'Chiến Dịch C', '2023-03-01', '2023-03-31', N'NV003'),
@@ -274,18 +274,7 @@ INSERT INTO ChienDich (MaCD, TenCD, NgayBatDau, NgayKetThuc, MaNV) VALUES
 (N'CD006', N'Chiến Dịch F', '2023-06-01', '2023-06-30', N'NV006'),
 (N'CD007', N'Chiến Dịch G', '2023-07-01', '2023-07-31', N'NV007'),
 (N'CD008', N'Chiến Dịch H', '2023-08-01', '2023-08-31', N'NV008'),
-(N'CD009', N'Chiến Dịch I', '2023-09-01', '2023-09-30', N'NV009');
-
-INSERT INTO KhachHang (MaKH, TenKH, Email, SDT, DiaChi) VALUES
-('KH001', 'Nguyen Van A', 'nguyenvana@example.com', '0123456789', 'Ha Noi'),
-('KH002', 'Tran Thi B', 'tranthib@example.com', '0987654321', 'Hai Phong'),
-('KH003', 'Le Van C', 'levanc@example.com', '0123456780', 'Da Nang'),
-('KH004', 'Pham Thi D', 'phamthid@example.com', '0123456781', 'Hue'),
-('KH005', 'Ngo Van E', 'ngovan@example.com', '0123456782', 'Can Tho'),
-('KH006', 'Vu Thi F', 'vuthif@example.com', '0123456783', 'Nha Trang'),
-('KH007', 'Hoang Van G', 'hoangvang@example.com', '0123456784', 'Vinh'),
-('KH008', 'Nguyen Thi H', 'nguyenthih@example.com', '0123456785', 'Bac Ninh'),
-('KH009', 'Truong Van I', 'truongvani@example.com', '0123456786', 'Thai Nguyen');
+(N'CD009', N'Chiến Dịch I', '2023-09-01', '2023-09-30', N'NV009');*/
 
 INSERT INTO LoaiKH (MaLoaiKH, TenLoaiKH) VALUES
 ('LKH001', 'Khach hang thuong'),
@@ -298,7 +287,18 @@ INSERT INTO LoaiKH (MaLoaiKH, TenLoaiKH) VALUES
 ('LKH008', 'Khach hang quoc te'),
 ('LKH009', 'Khach hang trung thanh');
 
-INSERT INTO UuDai (MaUuDai, NoiDungUuDai) 
+INSERT INTO KhachHang (MaKH, TenKH, Email, SDT, DiaChi, MaLoaiKH) VALUES
+('KH001', 'Nguyen Van A', 'nguyenvana@example.com', '0123456789', 'Ha Noi', 'LKH001'),
+('KH002', 'Tran Thi B', 'tranthib@example.com', '0987654321', 'Hai Phong', 'LKH002'),
+('KH003', 'Le Van C', 'levanc@example.com', '0123456780', 'Da Nang', 'LKH003'),
+('KH004', 'Pham Thi D', 'phamthid@example.com', '0123456781', 'Hue', 'LKH004'),
+('KH005', 'Ngo Van E', 'ngovan@example.com', '0123456782', 'Can Tho', 'LKH005'),
+('KH006', 'Vu Thi F', 'vuthif@example.com', '0123456783', 'Nha Trang', 'LKH006'),
+('KH007', 'Hoang Van G', 'hoangvang@example.com', '0123456784', 'Vinh', 'LKH007'),
+('KH008', 'Nguyen Thi H', 'nguyenthih@example.com', '0123456785', 'Bac Ninh', 'LKH008'),
+('KH009', 'Truong Van I', 'truongvani@example.com', '0123456786', 'Thai Nguyen', 'LKH009');
+
+/*INSERT INTO UuDai (MaUuDai, NoiDungUuDai) 
 VALUES
 ('UD001', N'Giảm giá 10% cho đơn hàng trên 500.000 VNĐ'),
 ('UD002', N'Mua 1 tặng 1 sản phẩm A'),
@@ -308,9 +308,9 @@ VALUES
 ('UD006', N'Mua 2 sản phẩm A được giảm giá 25%'),
 ('UD007', N'Tặng quà cho đơn hàng trên 1 triệu VNĐ'),
 ('UD008', N'Giảm giá 5% cho khách hàng thanh toán qua thẻ'),
-('UD009', N'Khách hàng giới thiệu bạn bè được giảm giá 30% cho lần mua tiếp theo');
+('UD009', N'Khách hàng giới thiệu bạn bè được giảm giá 30% cho lần mua tiếp theo');*/
 
-INSERT INTO UuDai_LoaiKH (MaUuDai, MaLoaiKH) 
+/*INSERT INTO UuDai_LoaiKH (MaUuDai, MaLoaiKH) 
 VALUES
 ('UD001', 'LKH001'),
 ('UD002', 'LKH002'),
@@ -320,9 +320,9 @@ VALUES
 ('UD006', 'LKH001'),
 ('UD007', 'LKH003'),
 ('UD008', 'LKH002'),
-('UD009', 'LKH001');
+('UD009', 'LKH001');*/
 
-INSERT INTO UuDai_ChienDich (MaUuDai, MaCD) 
+/*INSERT INTO UuDai_ChienDich (MaUuDai, MaCD) 
 VALUES
 ('UD001', 'CD001'),
 ('UD002', 'CD002'),
@@ -331,7 +331,7 @@ VALUES
 ('UD005', 'CD002'),
 ('UD006', 'CD003'),
 ('UD007', 'CD001'),
-('UD008', 'CD002');
+('UD008', 'CD002');*/
 
 INSERT INTO MauMaSP (MaAnhSP, MaSP, MoTa, HinhAnhSP, MaNV) VALUES
 ('MA001', 'SP001', 'Hinh anh banh keo', 'link_hinh_1.jpg', 'NV001'),
@@ -344,7 +344,7 @@ INSERT INTO MauMaSP (MaAnhSP, MaSP, MoTa, HinhAnhSP, MaNV) VALUES
 ('MA008', 'SP008', 'Hinh anh nuoc ngot', 'link_hinh_8.jpg', 'NV008'),
 ('MA009', 'SP009', 'Hinh anh thuc pham dinh duong', 'link_hinh_9.jpg', 'NV009');
 
-INSERT INTO HinhAnhQC (MaAnhQC, MaCD, MoTa, HinhAnhQC, MaNV) VALUES
+/*INSERT INTO HinhAnhQC (MaAnhQC, MaCD, MoTa, HinhAnhQC, MaNV) VALUES
 ('AQC001', 'CD001', 'Hinh anh quang cao 1', 'link_hinh_1.jpg', 'NV001'),
 ('AQC002', 'CD002', 'Hinh anh quang cao 2', 'link_hinh_2.jpg', 'NV002'),
 ('AQC003', 'CD003', 'Hinh anh quang cao 3', 'link_hinh_3.jpg', 'NV003'),
@@ -353,7 +353,7 @@ INSERT INTO HinhAnhQC (MaAnhQC, MaCD, MoTa, HinhAnhQC, MaNV) VALUES
 ('AQC006', 'CD006', 'Hinh anh quang cao 6', 'link_hinh_6.jpg', 'NV006'),
 ('AQC007', 'CD007', 'Hinh anh quang cao 7', 'link_hinh_7.jpg', 'NV007'),
 ('AQC008', 'CD008', 'Hinh anh quang cao 8', 'link_hinh_8.jpg', 'NV008'),
-('AQC009', 'CD009', 'Hinh anh quang cao 9', 'link_hinh_9.jpg', 'NV009');
+('AQC009', 'CD009', 'Hinh anh quang cao 9', 'link_hinh_9.jpg', 'NV009');*/
 
 INSERT INTO DonDH (MaDDH, MaKH, NgayLap, NgayGiao, TinhTrang, MaNV) VALUES 
 (N'DDH001', N'KH001', '2023-01-01', '2023-01-05', N'Đã giao', N'NV001'),
