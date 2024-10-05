@@ -28,6 +28,7 @@ public class NhapKhoSanPhamController {
         this.sanPhamModel = new SanPhamModel();
         createTableTonKho();
         addHangTonKho();
+        themPhieuNhap();
     }
     
     private void createTableTonKho() {
@@ -53,6 +54,19 @@ public class NhapKhoSanPhamController {
             }
         });
     }
+    
+    private void themPhieuNhap() {
+        form.getButtonThemPhieuNhap().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                form.getjPanel1().setVisible(true);
+                form.getButtonThemPhieuNhap().setEnabled(false);
+            }
+        });
+    }
+ 
+    
+    
     
   /*  private void refreshDataTable(String idMonThi) {
          List<Object[]> dsCauHoi = cauHoiModel.getAllCauHoiTheoMon(idMonThi);

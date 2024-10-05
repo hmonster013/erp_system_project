@@ -4,6 +4,7 @@
  */
 package com.mycompany.quan_ly_san_xuat.view;
 
+import com.mycompany.quan_ly_san_xuat.Controller.QuanLyNguyenVatLieuController;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -18,6 +19,7 @@ public class pDanhSachNVL extends javax.swing.JPanel {
      */
     public pDanhSachNVL() {
         initComponents();
+        QuanLyNguyenVatLieuController quanLyNguyenVatLieuController = new QuanLyNguyenVatLieuController(this);
     }
 
     /**
