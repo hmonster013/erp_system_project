@@ -276,17 +276,6 @@ INSERT INTO CTPhieuNghiemThu (MaPNT, SoLo, KetQuaNT) VALUES
 (N'CD008', N'Chiến Dịch H', '2023-08-01', '2023-08-31', N'NV008'),
 (N'CD009', N'Chiến Dịch I', '2023-09-01', '2023-09-30', N'NV009');*/
 
-INSERT INTO KhachHang (MaKH, TenKH, Email, SDT, DiaChi) VALUES
-('KH001', 'Nguyen Van A', 'nguyenvana@example.com', '0123456789', 'Ha Noi'),
-('KH002', 'Tran Thi B', 'tranthib@example.com', '0987654321', 'Hai Phong'),
-('KH003', 'Le Van C', 'levanc@example.com', '0123456780', 'Da Nang'),
-('KH004', 'Pham Thi D', 'phamthid@example.com', '0123456781', 'Hue'),
-('KH005', 'Ngo Van E', 'ngovan@example.com', '0123456782', 'Can Tho'),
-('KH006', 'Vu Thi F', 'vuthif@example.com', '0123456783', 'Nha Trang'),
-('KH007', 'Hoang Van G', 'hoangvang@example.com', '0123456784', 'Vinh'),
-('KH008', 'Nguyen Thi H', 'nguyenthih@example.com', '0123456785', 'Bac Ninh'),
-('KH009', 'Truong Van I', 'truongvani@example.com', '0123456786', 'Thai Nguyen');
-
 INSERT INTO LoaiKH (MaLoaiKH, TenLoaiKH) VALUES
 ('LKH001', 'Khach hang thuong'),
 ('LKH002', 'Khach hang VIP'),
@@ -297,6 +286,17 @@ INSERT INTO LoaiKH (MaLoaiKH, TenLoaiKH) VALUES
 ('LKH007', 'Khach hang tham gia su kien'),
 ('LKH008', 'Khach hang quoc te'),
 ('LKH009', 'Khach hang trung thanh');
+
+INSERT INTO KhachHang (MaKH, TenKH, Email, SDT, DiaChi, MaLoaiKH) VALUES
+('KH001', 'Nguyen Van A', 'nguyenvana@example.com', '0123456789', 'Ha Noi', 'LKH001'),
+('KH002', 'Tran Thi B', 'tranthib@example.com', '0987654321', 'Hai Phong', 'LKH002'),
+('KH003', 'Le Van C', 'levanc@example.com', '0123456780', 'Da Nang', 'LKH003'),
+('KH004', 'Pham Thi D', 'phamthid@example.com', '0123456781', 'Hue', 'LKH004'),
+('KH005', 'Ngo Van E', 'ngovan@example.com', '0123456782', 'Can Tho', 'LKH005'),
+('KH006', 'Vu Thi F', 'vuthif@example.com', '0123456783', 'Nha Trang', 'LKH006'),
+('KH007', 'Hoang Van G', 'hoangvang@example.com', '0123456784', 'Vinh', 'LKH007'),
+('KH008', 'Nguyen Thi H', 'nguyenthih@example.com', '0123456785', 'Bac Ninh', 'LKH008'),
+('KH009', 'Truong Van I', 'truongvani@example.com', '0123456786', 'Thai Nguyen', 'LKH009');
 
 /*INSERT INTO UuDai (MaUuDai, NoiDungUuDai) 
 VALUES

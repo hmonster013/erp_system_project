@@ -9,5 +9,7 @@ public partial class LoaiKh
 
     public string? TenLoaiKh { get; set; }
 
+    public virtual ICollection<KhachHang> KhachHangs { get; set; } = new List<KhachHang>();
+
     public virtual ICollection<UuDai> MaUuDais { get; set; } = new List<UuDai>();
 }

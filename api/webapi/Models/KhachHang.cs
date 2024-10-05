@@ -15,7 +15,11 @@ public partial class KhachHang
 
     public string? DiaChi { get; set; }
 
+    public string? MaLoaiKh { get; set; }
+
     public virtual ICollection<DonDh> DonDhs { get; set; } = new List<DonDh>();
+
+    public virtual LoaiKh? MaLoaiKhNavigation { get; set; }
 
     public virtual ICollection<PhieuThuCongNo> PhieuThuCongNos { get; set; } = new List<PhieuThuCongNo>();
 }
