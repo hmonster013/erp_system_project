@@ -1,4 +1,4 @@
-﻿CREATE DATABASE erp_database
+CREATE DATABASE erp_database
 GO
 
 USE erp_database
