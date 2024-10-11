@@ -18,6 +18,11 @@ public class fHomePage extends javax.swing.JFrame {
     private CardLayout cardLayout;
     private String maNv;
     
+    private pQuanLyKhachHang panelKhachHang;
+    private pQuanLyDonHang panelDonHang;
+    private pQuanLyHoaDon panelHoaDon;
+    private pQuanLyTonKho panelTonKho;
+    
     public fHomePage(String maNv) {
         this.maNv = maNv;
         
@@ -34,16 +39,16 @@ public class fHomePage extends javax.swing.JFrame {
     }
     
     public void addSubPanel(){
-        pQuanLyKhachHang panelKhachHang = new pQuanLyKhachHang();
+        panelKhachHang = new pQuanLyKhachHang();
         mainpanel.add(panelKhachHang, "QuanLyKhachHang");
 
-        pQuanLyDonHang panelDonHang = new pQuanLyDonHang(maNv);
+        panelDonHang = new pQuanLyDonHang(maNv);
         mainpanel.add(panelDonHang, "QuanLyDonHang");
 
-        pQuanLyHoaDon panelHoaDon = new pQuanLyHoaDon(maNv);
+        panelHoaDon = new pQuanLyHoaDon(maNv);
         mainpanel.add(panelHoaDon, "LapHoaDon");
 
-        pQuanLyTonKho panelTonKho = new pQuanLyTonKho();
+        panelTonKho = new pQuanLyTonKho();
         mainpanel.add(panelTonKho, "XemHangTonKho");
     }
     
@@ -80,8 +85,22 @@ public class fHomePage extends javax.swing.JFrame {
     
     // Phương thức chuyển đổi panel trong mainpanel
     private void showPanel(String panelName) {
-        cardLayout.show(mainpanel, panelName);
-    }
+            switch (panelName) {
+                case "QuanLyKhachHang":
+                    panelKhachHang.loadKhachHangs();
+                    break;
+                case "QuanLyDonHang":
+//                    panelDonHang.loadKhachHangs();
+                    break;
+                case "LapHoaDon":
+//                    panelHoaDon.refreshData();
+                    break;
+                case "XemHangTonKho":
+                    panelTonKho.showAllProducts();
+                    break;
+            }
+            cardLayout.show(mainpanel, panelName);
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.

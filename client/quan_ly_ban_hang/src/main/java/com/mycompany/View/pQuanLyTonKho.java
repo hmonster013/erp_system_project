@@ -43,7 +43,7 @@ public class pQuanLyTonKho extends javax.swing.JPanel {
         }
     }
 
-    private void showAllProducts() {
+    public void showAllProducts() {
         List<SanPhamDto> sanPhams = quanLyTonKhoController.getAllSanPhams();
         DefaultTableModel model = (DefaultTableModel) jTable_SanPham.getModel();
         model.setRowCount(0);
@@ -146,7 +146,7 @@ public class pQuanLyTonKho extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
@@ -158,7 +158,7 @@ public class pQuanLyTonKho extends javax.swing.JPanel {
                             .addComponent(jButton_ShowAllSp, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                             .addComponent(jButton_TimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

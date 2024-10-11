@@ -68,7 +68,7 @@ public class pTaoDonHang extends javax.swing.JPanel {
         });
     }
     
-    private void loadKhachHangs() {
+    public void loadKhachHangs() {
         List<KhachHangDto> khachHangs = quanLyKhachHangController.getAllKhachHangs();
         DefaultTableModel model = (DefaultTableModel) jTable_KhachHang.getModel();
         model.setRowCount(0);
@@ -82,7 +82,7 @@ public class pTaoDonHang extends javax.swing.JPanel {
         }
     }
     
-    private void loadSanPhams() {
+    public void loadSanPhams() {
         List<SanPhamDto> sanPhams = quanLyTonKhoController.getAllSanPhams();
         DefaultTableModel model = (DefaultTableModel) jTable_SanPham.getModel();
         model.setRowCount(0);

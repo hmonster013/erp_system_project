@@ -151,15 +151,31 @@ public class QuanLyDonHangController {
         }
 
         try {
-            // Giảm số lượng tồn khi thêm sản phẩm vào đơn hàng
+            // Lấy số lượng tồn của sản phẩm
             String maSp = createCtdonDhRequestDto.getMaSp();
-            int soLuong = createCtdonDhRequestDto.getSoLuong();
-            boolean isUpdated = updateSoLuongTon(maSp, -soLuong);
+            SanPham sanPhamModel = new SanPham();
+            SanPhamDto sanPhamDto = sanPhamModel.getSanPhamById(maSp);
+
+            if (sanPhamDto == null) {
+                return "Không tìm thấy sản phẩm.";
+            }
+
+            int soLuongTonHienTai = sanPhamDto.getSoLuongTon();
+            int soLuongYeuCau = createCtdonDhRequestDto.getSoLuong();
+
+            // Kiểm tra xem số lượng tồn có đủ không
+            if (soLuongYeuCau > soLuongTonHienTai) {
+                return "Số lượng tồn kho không đủ để thêm sản phẩm vào đơn hàng.";
+            }
+
+            // Giảm số lượng tồn khi thêm sản phẩm vào đơn hàng
+            boolean isUpdated = updateSoLuongTon(maSp, -soLuongYeuCau);
 
             if (!isUpdated) {
                 return "Cập nhật số lượng tồn thất bại. Không thể thêm sản phẩm.";
             }
 
+            // Thêm chi tiết đơn hàng
             boolean isCreated = ctdonDhModel.createCtdonDh(createCtdonDhRequestDto);
             return isCreated ? "Thêm sản phẩm thành công." : "Thêm sản phẩm thất bại.";
         } catch (Exception e) {
@@ -167,6 +183,7 @@ public class QuanLyDonHangController {
             return "Thêm sản phẩm thất bại.";
         }
     }
+
 
     
     // Cập nhật sản phẩm trong đơn hàng
@@ -176,26 +193,47 @@ public class QuanLyDonHangController {
         }
 
         try {
+            // Lấy chi tiết đơn hàng cũ
             CtdonDhDto chiTietCu = ctdonDhModel.getCtdonDhById(maDdh, maSp);
             int soLuongCu = chiTietCu.getSoLuong();
             int soLuongMoi = updateCtdonDhDto.getSoLuong();
 
+            // Nếu số lượng mới khác số lượng cũ, thực hiện các bước cập nhật
             if (soLuongMoi != soLuongCu) {
-                if (soLuongMoi < soLuongCu) {
-                    int soLuongThayDoi = soLuongCu - soLuongMoi;
-                    boolean isUpdated = updateSoLuongTon(maSp, soLuongThayDoi);
+                SanPham sanPhamModel = new SanPham();
+                SanPhamDto sanPhamDto = sanPhamModel.getSanPhamById(maSp);
+
+                if (sanPhamDto == null) {
+                    return "Không tìm thấy sản phẩm.";
+                }
+
+                int soLuongTonHienTai = sanPhamDto.getSoLuongTon();
+
+                // Nếu số lượng mới lớn hơn số lượng cũ, cần kiểm tra số lượng tồn
+                if (soLuongMoi > soLuongCu) {
+                    int soLuongThayDoi = soLuongMoi - soLuongCu;
+
+                    // Kiểm tra số lượng tồn có đủ để đáp ứng yêu cầu cập nhật
+                    if (soLuongThayDoi > soLuongTonHienTai) {
+                        return "Số lượng tồn kho không đủ để cập nhật sản phẩm.";
+                    }
+
+                    // Giảm số lượng tồn khi tăng số lượng sản phẩm trong đơn hàng
+                    boolean isUpdated = updateSoLuongTon(maSp, -soLuongThayDoi);
                     if (!isUpdated) {
                         return "Cập nhật số lượng tồn thất bại.";
                     }
                 } else {
-                    int soLuongThayDoi = soLuongMoi - soLuongCu;
-                    boolean isUpdated = updateSoLuongTon(maSp, -soLuongThayDoi);
+                    // Nếu số lượng mới nhỏ hơn số lượng cũ, tăng số lượng tồn
+                    int soLuongThayDoi = soLuongCu - soLuongMoi;
+                    boolean isUpdated = updateSoLuongTon(maSp, soLuongThayDoi);
                     if (!isUpdated) {
                         return "Cập nhật số lượng tồn thất bại.";
                     }
                 }
             }
 
+            // Cập nhật chi tiết đơn hàng
             boolean isUpdated = ctdonDhModel.updateCtdonDh(maDdh, maSp, updateCtdonDhDto);
             return isUpdated ? "Cập nhật sản phẩm thành công." : "Cập nhật sản phẩm thất bại.";
         } catch (Exception e) {
@@ -203,6 +241,7 @@ public class QuanLyDonHangController {
             return "Cập nhật sản phẩm thất bại.";
         }
     }
+
 
 
     // Hàm kiểm tra thông tin trước khi cập nhật

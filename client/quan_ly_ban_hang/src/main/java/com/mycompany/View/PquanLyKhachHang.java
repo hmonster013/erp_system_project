@@ -39,7 +39,7 @@ public class pQuanLyKhachHang extends javax.swing.JPanel {
         });
     }
 
-    private void loadKhachHangs() {
+    public void loadKhachHangs() {
         List<KhachHangDto> khachHangs = controller.getAllKhachHangs();
         DefaultTableModel model = (DefaultTableModel) jTable_KhachHang.getModel();
         model.setRowCount(0);
