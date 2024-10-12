@@ -25,6 +25,7 @@ public class pNhapSanPham extends javax.swing.JPanel {
         jPanel1.setVisible(false);
         jButton_luu.setEnabled(false);
         jButton_huy.setEnabled(false);
+        jButton_taoPhieu.setEnabled(false);
         jTextField_tenSP.setEnabled(false);
         jTextField_sltk.setEnabled(false);
         NhapKhoSanPhamController nhapKhoSanPhamController = new NhapKhoSanPhamController(this);
@@ -345,6 +346,7 @@ public class pNhapSanPham extends javax.swing.JPanel {
 
     private void jButton_hoanThanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_hoanThanhActionPerformed
         clearTextFileds(2);
+        jButton_taoPhieu.setEnabled(false);
     }//GEN-LAST:event_jButton_hoanThanhActionPerformed
 
     private void jButton_huyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_huyActionPerformed

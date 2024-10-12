@@ -132,6 +132,7 @@ public class NhapKhoSanPhamController {
                         pnspService.createPhieuNhapSanPham(phieuNhapSp);
                         chiTietPnspService.createChiTietPhieuNhapSanPham(chiTietPhieuNhapSp);                    
                        JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
+                       form.getButtonTaoPhieu().setEnabled(true);
                     } else {
                        JOptionPane.showMessageDialog(form, "Vui lòng nhập đầy đủ các trường!");
                     }

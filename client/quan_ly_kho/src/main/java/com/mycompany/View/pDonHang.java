@@ -5,10 +5,12 @@
 package com.mycompany.View;
 
 import com.mycompany.Controller.DonHangController;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Date;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 
 /**
@@ -23,6 +25,8 @@ public class pDonHang extends javax.swing.JPanel {
     public pDonHang() {
         initComponents();
         jPanel4.setVisible(false);
+        jButton_xuatKho.setEnabled(false);
+        jButton_capNhat.setEnabled(false);
         DonHangController form = new DonHangController(this);
     }
 
@@ -60,9 +64,9 @@ public class pDonHang extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jTextField_maMH = new javax.swing.JTextField();
         jTextField_tenMH = new javax.swing.JTextField();
-        jTextField_soLuongXuat = new javax.swing.JTextField();
         jButton_xuatKho = new javax.swing.JButton();
         jButton_hoanThanh = new javax.swing.JButton();
+        jSpinner_soLuongXuat = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jRadioButton_dangXuLy = new javax.swing.JRadioButton();
@@ -147,7 +151,7 @@ public class pDonHang extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField_maPX, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jDateChooser_ngayXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,13 +190,16 @@ public class pDonHang extends javax.swing.JPanel {
 
         jTextField_tenMH.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextField_soLuongXuat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jButton_xuatKho.setText("Xuất kho");
         jButton_xuatKho.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton_hoanThanh.setText("Hoàn thành");
         jButton_hoanThanh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton_hoanThanh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_hoanThanhActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -209,13 +216,13 @@ public class pDonHang extends javax.swing.JPanel {
                             .addComponent(jLabel8))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField_maMH, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_soLuongXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_tenMH, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_maMH, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                            .addComponent(jTextField_tenMH, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButton_xuatKho, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton_hoanThanh, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton_hoanThanh, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSpinner_soLuongXuat))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -234,7 +241,7 @@ public class pDonHang extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_soLuongXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner_soLuongXuat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton_xuatKho, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
@@ -359,6 +366,30 @@ public class pDonHang extends javax.swing.JPanel {
         jButton_themPX.setEnabled(false);
     }//GEN-LAST:event_jButton_themPXActionPerformed
 
+    private void jButton_hoanThanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_hoanThanhActionPerformed
+        clearTextFileds();
+        jButton_xuatKho.setEnabled(false);
+        jButton_capNhat.setEnabled(false);
+    }//GEN-LAST:event_jButton_hoanThanhActionPerformed
+
+     private void clearTextFileds() {
+            jTextField_maPX.setText("");
+            jTextField_maMH.setText("");
+            jTextField_tenMH.setText("");
+            jSpinner_soLuongXuat.setValue(0);
+            jDateChooser_ngayXuat.setDate(null);
+     }
+
+    public JDateChooser getjDateChooser_ngayXuat() {
+        return jDateChooser_ngayXuat;
+    }
+
+    public JSpinner getjSpinner_soLuongXuat() {
+        return jSpinner_soLuongXuat;
+    }
+    
+     
+    
     public ButtonGroup getButtonGroup_choose() {
         return buttonGroup_choose;
     }
@@ -423,13 +454,14 @@ public class pDonHang extends javax.swing.JPanel {
         return jTextField_maPX.getText().trim();
     }
 
-    public void setSoLuongXuat(String value) {
-        jTextField_soLuongXuat.setText(value);
+    public void setValueJSpinnerSoLuongXuat(int value) {
+        jSpinner_soLuongXuat.setValue(value);
     }
-
-    public String getSoLuongXuat() {
-        return jTextField_soLuongXuat.getText().trim();
+    
+    public String getValueJSpinnerSoLuongXuat() {
+        return jSpinner_soLuongXuat.getValue().toString();
     }
+    
 
     public void setTenMH(String value) {
         jTextField_tenMH.setText(value);
@@ -475,12 +507,12 @@ public class pDonHang extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton_dangXuLy;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner_soLuongXuat;
     private javax.swing.JTable jTable_chiTietDH;
     private javax.swing.JTable jTable_donHang;
     private javax.swing.JTextField jTextField_maDH;
     private javax.swing.JTextField jTextField_maMH;
     private javax.swing.JTextField jTextField_maPX;
-    private javax.swing.JTextField jTextField_soLuongXuat;
     private javax.swing.JTextField jTextField_tenMH;
     // End of variables declaration//GEN-END:variables
 }

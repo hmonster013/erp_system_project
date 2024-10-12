@@ -25,6 +25,7 @@ public class pNguyenVatLieu extends javax.swing.JPanel {
         initComponents();
         jButton_huy.setEnabled(false);
         jButton_luu.setEnabled(false);
+        jButton_nhapKho.setEnabled(false);
         jTextField_tenNVL1.setEnabled(false);
         jTextField_soLuongTon.setEnabled(false);
         NguyenVatLieuController nguyenVatLieuController = new NguyenVatLieuController(this);
@@ -378,6 +379,7 @@ public class pNguyenVatLieu extends javax.swing.JPanel {
 
     private void jButton_hoanThanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_hoanThanhActionPerformed
        clearTextFileds();
+       jButton_nhapKho.setEnabled(false);
     }//GEN-LAST:event_jButton_hoanThanhActionPerformed
 
     private void clearTextFileds() {

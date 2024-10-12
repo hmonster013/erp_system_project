@@ -68,5 +68,13 @@ namespace webapi.Controllers
 
             return nhaCungCapModel;
         }
+
+        public async Task<string?> GetMaNccByTenNccAsync(string tenNcc)
+        {
+            var nhaCungCap = await _context.NhaCungCaps
+                .FirstOrDefaultAsync(ncc => ncc.TenNcc == tenNcc);
+
+            return nhaCungCap?.MaNcc;
+        }
     }
 }

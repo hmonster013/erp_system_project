@@ -15,5 +15,6 @@ namespace webapi.Controllers
         Task<NhaCungCap> CreateAsync(NhaCungCap nhaCungCapModel);
         Task<NhaCungCap> UpdateAsync(string MaNcc, UpdateNhaCungCapDto updateNhaCungCapDto);
         Task<NhaCungCap> DeleteAsync(string MaNcc);        
+        Task<string?> GetMaNccByTenNccAsync(string tenNcc);
     }
 }

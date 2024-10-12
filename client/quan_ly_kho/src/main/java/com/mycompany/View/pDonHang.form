@@ -288,7 +288,7 @@
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="44" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextField_maPX" min="-2" pref="238" max="-2" attributes="0"/>
                                   <Component id="jDateChooser_ngayXuat" min="-2" pref="238" max="-2" attributes="0"/>
@@ -392,14 +392,14 @@
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField_maMH" min="-2" pref="238" max="-2" attributes="0"/>
-                                  <Component id="jTextField_soLuongXuat" min="-2" pref="238" max="-2" attributes="0"/>
-                                  <Component id="jTextField_tenMH" min="-2" pref="238" max="-2" attributes="0"/>
+                                  <Component id="jTextField_maMH" pref="238" max="32767" attributes="0"/>
+                                  <Component id="jTextField_tenMH" pref="238" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jButton_xuatKho" min="-2" pref="97" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButton_hoanThanh" min="-2" pref="86" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jSpinner_soLuongXuat" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -425,7 +425,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="jTextField_soLuongXuat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jSpinner_soLuongXuat" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -476,15 +476,6 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField_soLuongXuat">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="jButton_xuatKho">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xu&#x1ea5;t kho"/>
@@ -504,6 +495,11 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_hoanThanhActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinner_soLuongXuat">
             </Component>
           </SubComponents>
         </Container>

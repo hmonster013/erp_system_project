@@ -44,6 +44,20 @@ namespace webapi.Controllers
             return Ok(nhaCungCap.ToNhaCungCapDto());
         }
 
+        [HttpGet]
+        [Route("ten/{TenNcc}")]
+        public async Task<IActionResult> GetMaNccByTenNcc([FromRoute] String TenNcc)
+        {    
+            var maNcc = await _nhaCungCapRepository.GetMaNccByTenNccAsync(TenNcc);
+
+            if (maNcc == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new { MaNcc = maNcc });
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateNhaCungCapRequestDto createNhaCungCapRequestDto)
         {

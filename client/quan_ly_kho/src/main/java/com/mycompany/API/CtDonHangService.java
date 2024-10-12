@@ -23,7 +23,7 @@ import org.apache.http.impl.client.HttpClients;
  */
 public class CtDonHangService {
     
-     private static final String BASE_URL = "http://localhost:5106/api/ctdonhang";
+     private static final String BASE_URL = "http://localhost:5106/api/ctdondh";
      
      public List<CtDonHang> getAllCtDonHangByUrl(String url) throws IOException {
         List<CtDonHang> listCtDonHang = new ArrayList<>();
@@ -44,7 +44,7 @@ public class CtDonHangService {
         return listCtDonHang;
     }
       
-    public List<CtDonHang> getAllCtDonHang() throws IOException{
-        return getAllCtDonHangByUrl("");
+    public List<CtDonHang> getAllCtDonHangByMaDh(String maDh) throws IOException{
+        return getAllCtDonHangByUrl("/search/" + maDh);
     }
 }

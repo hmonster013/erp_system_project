@@ -181,6 +181,7 @@ public class NguyenVatLieuController {
                         ctPnnvlService.createChiTietPhieuNhapNvl(chiTietPhieuNhapNvl);
                         
                        JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
+                       form.getjButton_nhapKho().setEnabled(true);
                     } else {
                        JOptionPane.showMessageDialog(form, "Vui lòng nhập đầy đủ các trường!");
                     }
