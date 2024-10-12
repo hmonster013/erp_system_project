@@ -109,7 +109,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -314,7 +314,10 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="jButton_hoanThanh" min="-2" pref="134" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jTextField_soLuong" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jSpinner_soLuong" min="-2" pref="111" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -363,7 +366,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField_soLuong" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSpinner_soLuong" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton_hoanThanh" min="-2" max="-2" attributes="0"/>
@@ -504,15 +507,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField_soLuong">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                <BevelBorder/>
-              </Border>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jButton_nhapKho">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -565,6 +559,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="jSpinner_soLuong">
         </Component>
       </SubComponents>
     </Container>

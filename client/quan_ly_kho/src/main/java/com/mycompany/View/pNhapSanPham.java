@@ -9,6 +9,7 @@ import java.sql.Date;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -22,6 +23,10 @@ public class pNhapSanPham extends javax.swing.JPanel {
     public pNhapSanPham() {
         initComponents();
         jPanel1.setVisible(false);
+        jButton_luu.setEnabled(false);
+        jButton_huy.setEnabled(false);
+        jTextField_tenSP.setEnabled(false);
+        jTextField_sltk.setEnabled(false);
         NhapKhoSanPhamController nhapKhoSanPhamController = new NhapKhoSanPhamController(this);
     }
 
@@ -61,12 +66,12 @@ public class pNhapSanPham extends javax.swing.JPanel {
         jTable_SPNT = new javax.swing.JTable();
         jTextField_soLo = new javax.swing.JTextField();
         jTextField_tenSP1 = new javax.swing.JTextField();
-        jTextField_soLuong = new javax.swing.JTextField();
         jButton_nhapKho = new javax.swing.JButton();
         jButton_hoanThanh = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jSpinner_soLuong = new javax.swing.JSpinner();
         jButton_themPhieuNhap = new javax.swing.JButton();
 
         jScrollPane3.setViewportView(jEditorPane1);
@@ -159,8 +164,6 @@ public class pNhapSanPham extends javax.swing.JPanel {
 
         jTextField_tenSP1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTextField_soLuong.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jButton_nhapKho.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton_nhapKho.setText("Nhập kho");
         jButton_nhapKho.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -216,7 +219,9 @@ public class pNhapSanPham extends javax.swing.JPanel {
                                         .addComponent(jButton_nhapKho, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton_hoanThanh, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField_soLuong)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jSpinner_soLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(57, 57, 57)
@@ -253,7 +258,7 @@ public class pNhapSanPham extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField_soLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSpinner_soLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_hoanThanh)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -334,7 +339,7 @@ public class pNhapSanPham extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(jTextField_sltk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton_huy))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -355,10 +360,27 @@ public class pNhapSanPham extends javax.swing.JPanel {
             jTextField_maPhieuNhap.setText("");
             jTextField_soLo.setText("");
             jTextField_tenSP1.setText("");
-            jTextField_soLuong.setText("");
+            jSpinner_soLuong.setValue(0);
             jDateChooser_ngayNhap.setDate(null);
          }
      }
+
+     
+    public void setValueJSpinnerSoLuong(int value) {
+        jSpinner_soLuong.setValue(value);
+    }
+    
+    public String getValueJSpinnerSoLuong() {
+        return jSpinner_soLuong.getValue().toString();
+    }
+     
+    public JTextField getjTextField_tenSP() {
+        return jTextField_tenSP;
+    }
+
+    public JTextField getjTextField_maSP() {
+        return jTextField_maSP;
+    }
    
     public JPanel getjPanel1() {
         return jPanel1;
@@ -432,14 +454,6 @@ public class pNhapSanPham extends javax.swing.JPanel {
         return jTextField_soLo.getText().trim();
     }
 
-    public void setSoLuong(String value) {
-        jTextField_soLuong.setText(value);
-    }
-
-    public String getSoLuong() {
-        return jTextField_soLuong.getText().trim();
-    }
-
     public void setTenSP(String value) {
         jTextField_tenSP.setText(value);
     }
@@ -491,13 +505,13 @@ public class pNhapSanPham extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinner_soLuong;
     private javax.swing.JTable jTable_SPNT;
     private javax.swing.JTable jTable_tonKho;
     private javax.swing.JTextField jTextField_maPhieuNhap;
     private javax.swing.JTextField jTextField_maSP;
     private javax.swing.JTextField jTextField_sltk;
     private javax.swing.JTextField jTextField_soLo;
-    private javax.swing.JTextField jTextField_soLuong;
     private javax.swing.JTextField jTextField_tenSP;
     private javax.swing.JTextField jTextField_tenSP1;
     // End of variables declaration//GEN-END:variables

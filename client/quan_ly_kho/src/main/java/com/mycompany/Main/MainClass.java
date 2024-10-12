@@ -4,7 +4,6 @@
 
 package com.mycompany.Main;
 
-import com.mycompany.Connection.DBConnection;
 import java.sql.Connection;
 
 /**
@@ -14,12 +13,7 @@ import java.sql.Connection;
 public class MainClass {
 
     public static void main(String[] args) {
-        Connection conn = new DBConnection().getConnection();
-        if(conn != null) {
-            System.out.println("Ket noi thanh cong");
-        } else {
-            System.out.println("Ket noi that bai");
-        }
+        
     }
 }
 
