@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.quan_ly_san_xuat.view;
+package com.mycompany.View;
 
+import com.mycompany.Controller.SanPhamController;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -20,6 +21,7 @@ public class pDanhSachSP extends javax.swing.JPanel {
      */
     public pDanhSachSP() {
         initComponents();
+        SanPhamController sanPhamController = new SanPhamController(this);
     }
 
     /**

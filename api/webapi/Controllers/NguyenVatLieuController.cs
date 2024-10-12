@@ -44,6 +44,15 @@ namespace webapi.Controllers
             return Ok(nguyenVatLieu.ToNguyenVatLieuDto());
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateNguyenVatLieuRequestDto createNguyenVatLieuRequestDto)
+        {
+            var nguyenVatLieuModel = createNguyenVatLieuRequestDto.ToNguyenVatLieuFormCreateDto();
+            await _nguyenVatLieuRepository.CreateAsync(nguyenVatLieuModel);
+
+            return CreatedAtAction(nameof(GetDataByID), new { MaNvl = nguyenVatLieuModel.MaNvl }, nguyenVatLieuModel.ToNguyenVatLieuDto());
+        }
+
         [HttpPut]
         [Route("{MaNvl}")]
         public async Task<IActionResult> Update([FromRoute] string MaNvl, [FromBody] UpdateNguyenVatLieuDto updateNguyenVatLieuDto)

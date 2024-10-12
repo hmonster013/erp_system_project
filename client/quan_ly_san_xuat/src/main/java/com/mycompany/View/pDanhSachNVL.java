@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.quan_ly_san_xuat.view;
+package com.mycompany.View;
 
-import com.mycompany.quan_ly_san_xuat.Controller.QuanLyNguyenVatLieuController;
+import com.mycompany.Controller.NguyenVatLieuController;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -19,7 +19,7 @@ public class pDanhSachNVL extends javax.swing.JPanel {
      */
     public pDanhSachNVL() {
         initComponents();
-        QuanLyNguyenVatLieuController quanLyNguyenVatLieuController = new QuanLyNguyenVatLieuController(this);
+        NguyenVatLieuController nguyenVatLieuController = new NguyenVatLieuController(this);
     }
 
     /**

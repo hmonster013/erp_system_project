@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package com.mycompany.quan_ly_san_xuat.view;
+package com.mycompany.View;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;

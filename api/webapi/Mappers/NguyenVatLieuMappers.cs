@@ -20,7 +20,7 @@ namespace webapi.Controllers
             };
         }
 
-        public static NguyenVatLieu ToNguyenVatLieuFromCreateDto(this CreateNguyenVatLieuRequestDto createNguyenVatLieuRequestDto)
+        public static NguyenVatLieu ToNguyenVatLieuFormCreateDto(this CreateNguyenVatLieuRequestDto createNguyenVatLieuRequestDto)
         {
             return new NguyenVatLieu
             {

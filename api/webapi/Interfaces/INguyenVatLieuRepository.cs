@@ -13,5 +13,6 @@ namespace webapi.Controllers
         Task<List<NguyenVatLieu>> GetAllAsync();
         Task<NguyenVatLieu?> GetByIdAsync(string MaNvl);
         Task<NguyenVatLieu> UpdateAsync(string MaNvl, UpdateNguyenVatLieuDto updateNguyenVatLieuDto);
+        Task<NguyenVatLieu> CreateAsync(NguyenVatLieu nguyenVatLieuModel);
     }
 }

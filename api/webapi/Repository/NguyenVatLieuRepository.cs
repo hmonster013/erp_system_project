@@ -18,6 +18,14 @@ namespace webapi.Controllers
             _context = context;
         }
 
+        public async Task<NguyenVatLieu> CreateAsync(NguyenVatLieu nguyenVatLieuModel)
+        {
+            await _context.NguyenVatLieus.AddAsync(nguyenVatLieuModel);
+            await _context.SaveChangesAsync();
+
+            return nguyenVatLieuModel;
+        }
+
         public async Task<List<NguyenVatLieu>> GetAllAsync()
         {
             return await _context.NguyenVatLieus.ToListAsync();
