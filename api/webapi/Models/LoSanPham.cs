@@ -24,4 +24,6 @@ public partial class LoSanPham
     public virtual PhieuYcsx? MaYcNavigation { get; set; }
 
     public virtual ICollection<PhieuNhapSp> MaPnsps { get; set; } = new List<PhieuNhapSp>();
+
+    public virtual ICollection<CtphieuNhapSp> CtphieuNhapSps { get; set; }
 }

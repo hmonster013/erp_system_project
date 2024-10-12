@@ -40,6 +40,8 @@ public partial class ApplicationDBContext : DbContext
 
     public virtual DbSet<CtphieuNhapNvl> CtphieuNhapNvls { get; set; }
 
+    public virtual DbSet<CtphieuNhapSp> CtphieuNhapSps { get; set; }
+
     public virtual DbSet<CtphieuXuatNvl> CtphieuXuatNvls { get; set; }
 
     public virtual DbSet<CtphieuXuatSp> CtphieuXuatSps { get; set; }
@@ -114,7 +116,7 @@ public partial class ApplicationDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=TRANHUY;Initial Catalog=erp_database;Integrated Security=True;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-4O4HG3O2\\KHOA;Initial Catalog=erp_database;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -457,6 +459,32 @@ public partial class ApplicationDBContext : DbContext
                 .HasForeignKey(d => d.MaPnnvl)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__CTPhieuNh__MaPNN__31B762FC");
+        });
+
+        modelBuilder.Entity<CtphieuNhapSp>(entity =>
+        {
+            entity.HasKey(e => new { e.MaPnsp, e.SoLo }).HasName("PK__CTPhieuN__7B52F6D66406539E");
+
+            entity.ToTable("CTPhieuNhapSp");
+
+            entity.Property(e => e.MaPnsp)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("MaPNSP");
+            entity.Property(e => e.SoLo)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("SoLo");
+
+            entity.HasOne(d => d.MaPnspNavigation).WithMany(p => p.CtphieuNhapSps)
+                .HasForeignKey(d => d.MaPnsp)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__CTPhieuNh__MaPNS__3E1D39E1");
+
+            entity.HasOne(d => d.SoLoNavigation).WithMany(p => p.CtphieuNhapSps)
+                .HasForeignKey(d => d.SoLo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__CTPhieuNha__SoLo__3F115E1A");
         });
 
         modelBuilder.Entity<CtphieuXuatNvl>(entity =>

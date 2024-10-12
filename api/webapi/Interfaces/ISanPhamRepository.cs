@@ -12,6 +12,7 @@ namespace webapi.Controllers
         Task<List<SanPham>> GetAllAsync();
         Task<SanPham?> GetByIdAsync(string MaSp);
         Task<SanPham> CreateAsync(SanPham sanPhamModel);
+        Task<string?> GetTenSpByMaSpAsync(string MaSp);
         Task<SanPham> UpdateAsync(string MaSp, UpdateSanPhamDto updateSanPhamDto);
         Task<SanPham> DeleteAsync(string MaSp);
         Task<List<SanPham>> GetByMaLoaiAsync(string maLoai);

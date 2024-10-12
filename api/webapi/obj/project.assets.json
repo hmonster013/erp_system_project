@@ -4555,24 +4555,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {}
+    "C:\\Users\\Khoahihi79\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\ACER\\Desktop\\ERP\\erp_system_project\\api\\webapi\\webapi.csproj",
+      "projectUniqueName": "D:\\erp_system_project\\api\\webapi\\webapi.csproj",
       "projectName": "webapi",
-      "projectPath": "c:\\Users\\ACER\\Desktop\\ERP\\erp_system_project\\api\\webapi\\webapi.csproj",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\ACER\\Desktop\\ERP\\erp_system_project\\api\\webapi\\obj\\",
+      "projectPath": "D:\\erp_system_project\\api\\webapi\\webapi.csproj",
+      "packagesPath": "C:\\Users\\Khoahihi79\\.nuget\\packages\\",
+      "outputPath": "D:\\erp_system_project\\api\\webapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Khoahihi79\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },

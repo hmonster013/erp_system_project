@@ -44,6 +44,20 @@ namespace webapi.Controllers
             return Ok(sanPham.ToSanPhamDto());
         }
 
+        [HttpGet]
+        [Route("ten/{MaSp}")]
+        public async Task<IActionResult> GetTenSpByMaSp([FromRoute] string MaSp)
+        {
+            var tenSp = await _sanPhamRepository.GetTenSpByMaSpAsync(MaSp);
+
+            if (tenSp == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new { TenSp = tenSp });
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateSanPhamRequestDto createSanPhamRequestDto)
         {

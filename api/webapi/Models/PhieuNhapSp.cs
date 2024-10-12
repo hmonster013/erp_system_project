@@ -14,4 +14,6 @@ public partial class PhieuNhapSp
     public virtual ThongTinNhanVien? MaNvNavigation { get; set; }
 
     public virtual ICollection<LoSanPham> SoLos { get; set; } = new List<LoSanPham>();
+
+    public virtual ICollection<CtphieuNhapSp> CtphieuNhapSps { get; set; }
 }

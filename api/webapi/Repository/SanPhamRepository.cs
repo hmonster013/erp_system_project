@@ -72,6 +72,14 @@ namespace webapi.Controllers
             return sanPhamModel;
         }
 
+        public async Task<string?> GetTenSpByMaSpAsync(string MaSp)
+        {
+            var sanPham = await _context.SanPhams
+                .FirstOrDefaultAsync(x => x.MaSp == MaSp);
+
+            return sanPham?.TenSp; 
+        }
+
         public async Task<List<SanPham>> GetByMaLoaiAsync(string maLoai)
         {
             return await _context.SanPhams
