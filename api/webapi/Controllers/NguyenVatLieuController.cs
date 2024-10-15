@@ -66,6 +66,20 @@ namespace webapi.Controllers
 
             return Ok(nguyenVatLieuModel.ToNguyenVatLieuDto());
         }
+
+        [HttpDelete]
+        [Route("{MaNvl}")]
+        public async Task<IActionResult> Delete([FromRoute] string MaNvl)
+        {
+            var nguyenVatLieuModel = await _nguyenVatLieuRepository.DeleteAsync(MaNvl);
+
+            if (nguyenVatLieuModel == null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
     }
 }
 

@@ -29,6 +29,10 @@ public class NguyenVatLieu {
         this.GhiChu = GhiChu;
         this.SoLuongTon = SoLuongTon;
     }
+    
+    public NguyenVatLieu(String MaNvl, String TenNvl, String GhiChu) {
+        this(MaNvl, TenNvl, GhiChu, 0); 
+    }
 
     public String getMaNvl() {
         return MaNvl;

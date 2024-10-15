@@ -14,7 +14,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -57,14 +59,40 @@ public class NguyenVatLieuService {
         
         CloseableHttpResponse response = client.execute(httpGet);
         
+         int statusCode = response.getStatusLine().getStatusCode();
+
+        if (statusCode == 404) {
+        return null;
+        }
+        
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         StringBuilder result = new StringBuilder();
         String line;
         while((line = reader.readLine()) != null) {
             result.append(line);
         }
+        return new ObjectMapper().readValue(result.toString(), new TypeReference<NguyenVatLieu>() {});
 
-        return new ObjectMapper().readValue(result.toString(), new TypeReference<NguyenVatLieu> () {});
+    }
+    
+    public NguyenVatLieu createNguyenVatLieu(NguyenVatLieu nguyenVatLieu) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(BASE_URL);
+        httpPost.setHeader("Content-Type", "application/json");
+        
+        StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(nguyenVatLieu), StandardCharsets.UTF_8);
+        httpPost.setEntity(entity);
+        
+        CloseableHttpResponse response = client.execute(httpPost);
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8")); 
+        String line;
+        StringBuilder result = new StringBuilder();
+        while((line = reader.readLine()) != null) {
+            result.append(line);
+        }
+        
+        return new ObjectMapper().readValue(result.toString(), NguyenVatLieu.class);
     }
     
     public NguyenVatLieu updateNguyenVatLieu(String maNvl, NguyenVatLieu nguyenVatLieu) throws IOException {
@@ -85,5 +113,13 @@ public class NguyenVatLieuService {
         }
 
            return new ObjectMapper().readValue(result.toString(), NguyenVatLieu.class);
+    }
+    
+    public boolean deleteNguyenVatLieu(String maNvl) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpDelete httpDelete = new HttpDelete(BASE_URL + "/" + maNvl);
+        
+        CloseableHttpResponse response = client.execute(httpDelete);
+        return response.getStatusLine().getStatusCode() == 204;
     }
 }

@@ -14,6 +14,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -34,6 +35,12 @@ public class SanPhamService {
         HttpGet httpGet = new HttpGet(BASE_URL + "/" + maSp);
         
         CloseableHttpResponse response = client.execute(httpGet);
+        
+          int statusCode = response.getStatusLine().getStatusCode();
+
+         if (statusCode == 404) {
+              return null;
+          }
         
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         StringBuilder result = new StringBuilder();
@@ -68,6 +75,10 @@ public class SanPhamService {
         return getAllSanPhamByUrl("");
     }
     
+    public List<SanPham> getAllSanPhamByMaLoai(String maLoai) throws IOException{
+        return getAllSanPhamByUrl("/search/" + maLoai);
+    }
+    
     public String getTenSpByMaSp(String maSp) throws IOException {
        String tenSp = "";
         
@@ -89,6 +100,26 @@ public class SanPhamService {
          return tenSp;
     }
     
+    public SanPham createSanPham(SanPham sanPham) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(BASE_URL);
+        httpPost.setHeader("Content-Type", "application/json");
+        
+        StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(sanPham), StandardCharsets.UTF_8);
+        httpPost.setEntity(entity);
+        
+        CloseableHttpResponse response = client.execute(httpPost);
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8")); 
+        String line;
+        StringBuilder result = new StringBuilder();
+        while((line = reader.readLine()) != null) {
+            result.append(line);
+        }
+        
+        return new ObjectMapper().readValue(result.toString(), SanPham.class);
+    }
+    
     public SanPham updateSanPham(String maSp, SanPham sanPham) throws IOException {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpPut httpPut  = new HttpPut(BASE_URL  + "/" + maSp);
@@ -107,5 +138,13 @@ public class SanPhamService {
         }
 
            return new ObjectMapper().readValue(result.toString(), SanPham.class);
+    }
+    
+    public boolean deleteSanPham(String maSp) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpDelete httpDelete = new HttpDelete(BASE_URL + "/" + maSp);
+        
+        CloseableHttpResponse response = client.execute(httpDelete);
+        return response.getStatusLine().getStatusCode() == 204;
     }
 }

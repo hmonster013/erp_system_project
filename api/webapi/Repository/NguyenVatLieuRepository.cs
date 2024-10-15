@@ -54,5 +54,20 @@ namespace webapi.Controllers
 
             return nguyenVatLieuModel;
         }
+
+        public async Task<NguyenVatLieu> DeleteAsync(string MaNvl)
+        {
+            var nguyenVatLieuModel = await _context.NguyenVatLieus.FirstOrDefaultAsync(x => x.MaNvl == MaNvl);
+
+            if (nguyenVatLieuModel == null)
+            {
+                return null;
+            }
+
+            _context.NguyenVatLieus.Remove(nguyenVatLieuModel);
+            await _context.SaveChangesAsync();
+
+            return nguyenVatLieuModel;
+        }
     }
 }
