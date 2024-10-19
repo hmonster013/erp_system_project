@@ -4,10 +4,13 @@
  */
 package com.mycompany.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author Khoahihi79
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LoaiSanPham {
     
     private String MaLoai;

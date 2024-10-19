@@ -4,6 +4,7 @@
  */
 package com.mycompany.API;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.Entity.PhieuXuatSp;
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -42,5 +44,28 @@ public class PhieuXuatSpService {
         }
         
         return  new ObjectMapper().readValue(result.toString(), PhieuXuatSp.class);
+    }
+    
+     public PhieuXuatSp getPhieuXuatByMaPhieu(String maPhieu) throws IOException {
+        
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(BASE_URL + "/" + maPhieu);
+        
+        CloseableHttpResponse response = client.execute(httpGet);
+        
+        int statusCode = response.getStatusLine().getStatusCode();
+
+         if (statusCode == 404) {
+              return null;
+          }
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+        StringBuilder result = new StringBuilder();
+        String line;
+        while((line = reader.readLine()) != null) {
+            result.append(line);
+        }
+
+        return new ObjectMapper().readValue(result.toString(), new TypeReference<PhieuXuatSp> () {});
     }
 }

@@ -18,7 +18,8 @@ namespace webapi.Controllers
                 MaSp = loSanPhamModel.MaSp,
                 SoLuongSp = loSanPhamModel.SoLuongSp,
                 Nsx = loSanPhamModel.Nsx,
-                Hsd = loSanPhamModel.Hsd
+                Hsd = loSanPhamModel.Hsd,
+                TinhTrang = loSanPhamModel.TinhTrang
             };
         }
 
@@ -31,7 +32,8 @@ namespace webapi.Controllers
                 MaSp = createLoSanPhamRequestDto.MaSp,
                 SoLuongSp = createLoSanPhamRequestDto.SoLuongSp,
                 Nsx = createLoSanPhamRequestDto.Nsx,
-                Hsd = createLoSanPhamRequestDto.Hsd
+                Hsd = createLoSanPhamRequestDto.Hsd,
+                TinhTrang = createLoSanPhamRequestDto.TinhTrang
             };
         }
     }

@@ -174,14 +174,18 @@ public class NguyenVatLieuController {
                     String formattedDate2 = dateFormat.format(hSD);
                    
                     if(ValidateJTextField.validateFields(maNvl, maPnnvl, tenNvl)) {
-                        PhieuNhapNvl phieuNhapNvl = new PhieuNhapNvl(maPnnvl, formattedDate, maNcc);
-                        ChiTietPhieuNhapNvl chiTietPhieuNhapNvl = new ChiTietPhieuNhapNvl(maPnnvl, maNvl, soLuongNhap, dVT, giaNhap, formattedDate1, formattedDate2);
-                        
-                        pnnvlService.createPhieuNhapNvl(phieuNhapNvl);
-                        ctPnnvlService.createChiTietPhieuNhapNvl(chiTietPhieuNhapNvl);
-                        
-                       JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
-                       form.getjButton_nhapKho().setEnabled(true);
+                        if(pnnvlService.getPhieuNhapByMaPhieu(maPnnvl) == null) {
+                            PhieuNhapNvl phieuNhapNvl = new PhieuNhapNvl(maPnnvl, formattedDate, maNcc);
+                            ChiTietPhieuNhapNvl chiTietPhieuNhapNvl = new ChiTietPhieuNhapNvl(maPnnvl, maNvl, soLuongNhap, dVT, giaNhap, formattedDate1, formattedDate2);
+
+                            pnnvlService.createPhieuNhapNvl(phieuNhapNvl);
+                            ctPnnvlService.createChiTietPhieuNhapNvl(chiTietPhieuNhapNvl);
+
+                           JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
+                           form.getjButton_nhapKho().setEnabled(true);
+                        } else {
+                            JOptionPane.showMessageDialog(form, "Phiếu đã tồn tại!");
+                        }
                     } else {
                        JOptionPane.showMessageDialog(form, "Vui lòng nhập đầy đủ các trường!");
                     }

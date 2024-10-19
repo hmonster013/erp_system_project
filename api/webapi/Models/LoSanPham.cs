@@ -17,6 +17,8 @@ public partial class LoSanPham
 
     public DateOnly? Hsd { get; set; }
 
+    public string? TinhTrang { get; set; }
+
     public virtual ICollection<CtphieuNghiemThu> CtphieuNghiemThus { get; set; } = new List<CtphieuNghiemThu>();
 
     public virtual SanPham? MaSpNavigation { get; set; }

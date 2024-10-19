@@ -24,15 +24,26 @@ public class LoSanPham {
 
     private String Hsd;
     
+    private String TinhTrang;
+    
     public LoSanPham() {}
 
-    public LoSanPham(String SoLo, String MaYc, String MaSp, int SoLuongSp, String Nsx, String Hsd) {
+    public LoSanPham(String SoLo, String MaYc, String MaSp, int SoLuongSp, String Nsx, String Hsd, String TinhTrang) {
         this.SoLo = SoLo;
         this.MaYc = MaYc;
         this.MaSp = MaSp;
         this.SoLuongSp = SoLuongSp;
         this.Nsx = Nsx;
         this.Hsd = Hsd;
+        this.TinhTrang = TinhTrang;
+    }
+
+    public String getTinhTrang() {
+        return TinhTrang;
+    }
+
+    public void setTinhTrang(String TinhTrang) {
+        this.TinhTrang = TinhTrang;
     }
 
     public String getSoLo() {

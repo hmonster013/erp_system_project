@@ -11,6 +11,7 @@ namespace webapi.Controllers
     {
         Task<List<LoSanPham>> GetAllAsync();
         Task<LoSanPham?> GetByIdAsync(string soLo);
+        Task<List<LoSanPham?>> GetByMaYcAsync(string MaYc);
         Task<LoSanPham> CreateAsync(LoSanPham loSanPhamModel);
         Task<LoSanPham> UpdateAsync(string soLo, UpdateLoSanPhamDto updateLoSanPhamDto);
         Task<LoSanPham> DeleteAsync(string soLo);

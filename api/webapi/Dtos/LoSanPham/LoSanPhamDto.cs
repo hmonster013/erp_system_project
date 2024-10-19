@@ -18,5 +18,7 @@ namespace webapi.Dtos.LoSanPham
         public DateOnly? Nsx { get; set; }
 
         public DateOnly? Hsd { get; set; }
+
+        public string? TinhTrang { get; set; }
     }
 }

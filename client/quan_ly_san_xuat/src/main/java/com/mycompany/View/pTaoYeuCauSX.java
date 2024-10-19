@@ -4,8 +4,11 @@
  */
 package com.mycompany.View;
 
+import com.mycompany.Controller.ChiTietYeuCauController;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,6 +21,8 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
      */
     public pTaoYeuCauSX() {
         initComponents();
+        ChiTietYeuCauController chiTietYeuCauController = new ChiTietYeuCauController(this);
+        jButton_them.setEnabled(false);
     }
 
     /**
@@ -48,11 +53,11 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jTextField_masp = new javax.swing.JTextField();
         jTextField_tensp = new javax.swing.JTextField();
-        jTextField_solocansx = new javax.swing.JTextField();
         jButton_them = new javax.swing.JButton();
         jButton_hoanthanh = new javax.swing.JButton();
         jDateChooser_ngaybatdau = new com.toedter.calendar.JDateChooser();
         jDateChooser_ngayketthuc = new com.toedter.calendar.JDateChooser();
+        jSpinner_slsx = new javax.swing.JSpinner();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("TẠO YÊU CẦU SẢN XUẤT");
@@ -65,13 +70,13 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
 
         jTable_tren.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã sản phẩm", "Tên sản phẩm", "SL sản xuất"
             }
         ));
         jScrollPane1.setViewportView(jTable_tren);
@@ -79,6 +84,11 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
         jLabel5.setText("DANH SÁCH SẢN PHẨM CẦN SẢN XUẤT");
 
         jButton_taoyeucau.setText("Tạo yêu cầu");
+        jButton_taoyeucau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_taoyeucauActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Chọn sản phẩm");
 
@@ -86,16 +96,19 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
 
         jTable_duoi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã sản phẩm", "Tên sản phẩm", "SL tồn"
             }
         ));
         jScrollPane2.setViewportView(jTable_duoi);
+        if (jTable_duoi.getColumnModel().getColumnCount() > 0) {
+            jTable_duoi.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         jLabel7.setText("Mã sản phẩm");
 
@@ -106,6 +119,11 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
         jButton_them.setText("Thêm sản phẩm");
 
         jButton_hoanthanh.setText("Hoàn thành");
+        jButton_hoanthanh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_hoanthanhActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,32 +150,29 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
                                 .addGap(38, 38, 38)
                                 .addComponent(jTextField_maphieu))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel4)
-                                                .addComponent(jLabel3))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jDateChooser_ngaybatdau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jDateChooser_ngayketthuc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGap(112, 112, 112)
-                                            .addComponent(jButton_taoyeucau))
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jTextField_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton_tim))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLabel9)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField_solocansx, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jButton_them)))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel3))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jDateChooser_ngaybatdau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jDateChooser_ngayketthuc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jTextField_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton_tim))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jSpinner_slsx, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton_them))
+                                    .addComponent(jButton_taoyeucau))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -193,9 +208,9 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jDateChooser_ngayketthuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(16, 16, 16)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton_taoyeucau)
-                                .addGap(29, 29, 29)
+                                .addGap(27, 27, 27)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,12 +233,64 @@ public class pTaoYeuCauSX extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField_solocansx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_them))
+                    .addComponent(jButton_them)
+                    .addComponent(jSpinner_slsx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_hoanthanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_hoanthanhActionPerformed
+        jTextField_maphieu.setText("");
+        jTextField_masp.setText("");
+        jTextField_tensp.setText("");
+        jSpinner_slsx.setValue(0);
+        jDateChooser_ngaybatdau.setDate(null);
+        jDateChooser_ngayketthuc.setDate(null);
+        jButton_them.setEnabled(false);
+        jTextField_maphieu.setEnabled(true);
+        jDateChooser_ngaybatdau.setEnabled(true);
+        jDateChooser_ngayketthuc.setEnabled(true);
+        jButton_taoyeucau.setEnabled(true);
+    }//GEN-LAST:event_jButton_hoanthanhActionPerformed
+
+    private void jButton_taoyeucauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_taoyeucauActionPerformed
+        jTextField_maphieu.setEnabled(false);
+        jDateChooser_ngaybatdau.setEnabled(false);
+        jDateChooser_ngayketthuc.setEnabled(false);
+        jButton_taoyeucau.setEnabled(false);
+        jButton_them.setEnabled(true);
+    }//GEN-LAST:event_jButton_taoyeucauActionPerformed
+
+    public JTextField getjTextField_timkiem() {
+        return jTextField_timkiem;
+    }
+
+    public void setValueJSpinnerSoLuong(int value) {
+        jSpinner_slsx.setValue(value);
+    }
+    
+    public String getValueJSpinnerSoLuong() {
+        return jSpinner_slsx.getValue().toString();
+    }
+    
+     public void setValueJDateChooserNBD(Date value) {
+        jDateChooser_ngaybatdau.setDate(value);
+    }
+    
+    public Date getValueJDateChooserNBD() {
+         java.util.Date utilDate = jDateChooser_ngaybatdau.getDate();
+        return new Date(utilDate.getTime());
+    }
+    
+    public void setValueJDateChooserNKT(Date value) {
+        jDateChooser_ngayketthuc.setDate(value);
+    }
+    
+    public Date getValueJDateChooserNKT() {
+         java.util.Date utilDate = jDateChooser_ngayketthuc.getDate();
+        return new Date(utilDate.getTime());
+    }
+    
     public JButton getjButton_taoyeucau() {
         return jButton_taoyeucau;
     }
@@ -264,13 +331,6 @@ public String getMaSP() {
     return jTextField_masp.getText().trim();
 }
 
-public void setSoLoCanSX(String value) {
-    jTextField_solocansx.setText(value);
-}
-
-public String getSoLoCanSX() {
-    return jTextField_solocansx.getText().trim();
-}
 
 public void setTenSP(String value) {
     jTextField_tensp.setText(value);
@@ -307,11 +367,11 @@ public String getTimKiem() {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner_slsx;
     private javax.swing.JTable jTable_duoi;
     private javax.swing.JTable jTable_tren;
     private javax.swing.JTextField jTextField_maphieu;
     private javax.swing.JTextField jTextField_masp;
-    private javax.swing.JTextField jTextField_solocansx;
     private javax.swing.JTextField jTextField_tensp;
     private javax.swing.JTextField jTextField_timkiem;
     // End of variables declaration//GEN-END:variables

@@ -97,22 +97,22 @@ public class DonHangController {
     }
      
          private void showChiTietDonHang(String maDh) {
-        try { 
-                tableModeCtlDonHang.setRowCount(0);
-                List<CtDonHang> listCtDonHang = ctDonHangService.getAllCtDonHangByMaDh(maDh);
-                if(listCtDonHang != null) {
-                    JTable tableCtDonHang = form.getjTable_chiTietDH();        
-                    for(CtDonHang ctDonHang : listCtDonHang) {
-                        tenSanPham = sanPhamService.getTenSpByMaSp(ctDonHang.getMaSp());
-                        Object[] row = {ctDonHang.getMaSp(), tenSanPham, ctDonHang.getSoLuong()};
-                        tableModeCtlDonHang.addRow(row);
-                    }
-                    tableCtDonHang.setModel(tableModeCtlDonHang);
-                }  
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+            try { 
+                    tableModeCtlDonHang.setRowCount(0);
+                    List<CtDonHang> listCtDonHang = ctDonHangService.getAllCtDonHangByMaDh(maDh);
+                    if(listCtDonHang != null) {
+                        JTable tableCtDonHang = form.getjTable_chiTietDH();        
+                        for(CtDonHang ctDonHang : listCtDonHang) {
+                            tenSanPham = sanPhamService.getTenSpByMaSp(ctDonHang.getMaSp());
+                            Object[] row = {ctDonHang.getMaSp(), tenSanPham, ctDonHang.getSoLuong()};
+                            tableModeCtlDonHang.addRow(row);
+                        }
+                        tableCtDonHang.setModel(tableModeCtlDonHang);
+                    }  
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+         }
      
          private void showCtDonDh() {
          form.getjTable_donHang().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -156,12 +156,16 @@ public class DonHangController {
                    if(!ValidateJTextField.validateFields(maPx)) {
                        JOptionPane.showMessageDialog(form, "Vui lòng nhập đầy đủ các trường!");
                    }  else {
-                       PhieuXuatSp phieuXuatSp = new PhieuXuatSp(maPx, maDh, formattedDate);
-                       
-                       phieuXuatSpService.createPhieuXuatSanPham(phieuXuatSp);
-                       
-                       JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
-                       form.getjButton_xuatKho().setEnabled(true);
+                       if(phieuXuatSpService.getPhieuXuatByMaPhieu(maPx) == null) {
+                        PhieuXuatSp phieuXuatSp = new PhieuXuatSp(maPx, maDh, formattedDate);
+
+                        phieuXuatSpService.createPhieuXuatSanPham(phieuXuatSp);
+
+                        JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
+                        form.getjButton_xuatKho().setEnabled(true);
+                       } else {
+                           JOptionPane.showMessageDialog(form, "Phiếu đã tồn tại!");
+                       }
                    }                                                  
                  } catch(IOException ex) {
                      ex.printStackTrace();

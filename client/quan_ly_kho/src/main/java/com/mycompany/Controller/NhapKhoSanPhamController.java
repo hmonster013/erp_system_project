@@ -96,7 +96,9 @@ public class NhapKhoSanPhamController {
                     for(LoSanPham loSanPham : listLoSanPham) {
                         tenSanPham = sanPhamService.getTenSpByMaSp(loSanPham.getMaSp());
                         Object[] row = {loSanPham.getSoLo(), tenSanPham,  loSanPham.getSoLuongSp()};
-                        tableModelLoSp.addRow(row);
+                        if(loSanPham.getTinhTrang().equals("Da nghiem thu")) {
+                            tableModelLoSp.addRow(row);
+                        }
                     }
                     tableLoSp.setModel(tableModelLoSp);
                 }  
@@ -126,13 +128,15 @@ public class NhapKhoSanPhamController {
                     String soLo = form.getSoLo();
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Định dạng chỉ lấy ngày
                     String formattedDate = dateFormat.format(ngayNhap); // Lấy giá trị ngày đã định dạng
-                    if(ValidateJTextField.validateFields(maPnsp, soLo)) {
-                        PhieuNhapSp phieuNhapSp = new PhieuNhapSp(maPnsp, formattedDate);
-                       ChiTietPhieuNhapSp chiTietPhieuNhapSp = new ChiTietPhieuNhapSp(maPnsp, soLo);
-                        pnspService.createPhieuNhapSanPham(phieuNhapSp);
-                        chiTietPnspService.createChiTietPhieuNhapSanPham(chiTietPhieuNhapSp);                    
-                       JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
-                       form.getButtonTaoPhieu().setEnabled(true);
+                    if(ValidateJTextField.validateFields(maPnsp)) {
+                        if(pnspService.getPhieuNhapByMaPhieu(maPnsp) == null) {
+                            PhieuNhapSp phieuNhapSp = new PhieuNhapSp(maPnsp, formattedDate);
+                            pnspService.createPhieuNhapSanPham(phieuNhapSp);               
+                           JOptionPane.showMessageDialog(form, "Tạo phiếu thành công!");
+                           form.getButtonNhapKho().setEnabled(true);
+                        } else {
+                            JOptionPane.showMessageDialog(form, "Phiếu đã tồn tại!");
+                        }
                     } else {
                        JOptionPane.showMessageDialog(form, "Vui lòng nhập đầy đủ các trường!");
                     }
@@ -154,6 +158,7 @@ public class NhapKhoSanPhamController {
                         if(selectedRowLoSp != -1 && selectedRowTonKho != -1) {
                             String maSp = form.getTableTonKho().getValueAt(selectedRowTonKho, 0).toString();
                             String soLo = form.getTableSanPham().getValueAt(selectedRowLoSp, 0).toString();
+                            String maPnsp = form.getMaPhieuNhap();
 
                             int soLuongSpNhapKho = Integer.parseInt(form.getValueJSpinnerSoLuong());
                             int soLuongTonKho = Integer.parseInt(form.getTableTonKho().getValueAt(selectedRowTonKho, 2).toString());
@@ -162,7 +167,7 @@ public class NhapKhoSanPhamController {
                                 JOptionPane.showMessageDialog(form, "Số lượng sản phẩm trong lô không đủ!");
                             } 
 
-                            else if (soLuongSpNhapKho < 0) {
+                            else if (soLuongSpNhapKho <= 0) {
                                 JOptionPane.showMessageDialog(form, "Vui lòng nhập số lượng sản phẩm hợp lệ!");
                             } 
 
@@ -176,6 +181,9 @@ public class NhapKhoSanPhamController {
                                 LoSanPham loSanPham = loSanPhamService.getLoSpBySoLo(soLo);
                                 loSanPham.setSoLuongSp(soLuongSpLo); 
 
+                                ChiTietPhieuNhapSp chiTietPhieuNhapSp = new ChiTietPhieuNhapSp(maPnsp, soLo);
+                                chiTietPnspService.createChiTietPhieuNhapSanPham(chiTietPhieuNhapSp);     
+                                
                                 sanPhamService.updateSanPham(maSp, sanPham);
                                 loSanPhamService.updateLoSanPham(soLo, loSanPham);
 

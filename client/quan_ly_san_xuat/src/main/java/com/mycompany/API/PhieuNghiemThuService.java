@@ -6,7 +6,7 @@ package com.mycompany.API;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mycompany.Entity.DonHang;
+import com.mycompany.Entity.PhieuNghiemThu;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -24,12 +24,11 @@ import org.apache.http.impl.client.HttpClients;
  *
  * @author Khoahihi79
  */
-public class DonHangService {
+public class PhieuNghiemThuService {
+    private static final String BASE_URL = "http://localhost:5106/api/phieunghiemthu";
     
-    private static final String BASE_URL = "http://localhost:5106/api/dondh";
-    
-     public List<DonHang> getAllDonHangByUrl(String url) throws IOException {
-        List<DonHang> listDonHang = new ArrayList<>();
+    public List<PhieuNghiemThu> getAllPhieuNghiemThuByUrl(String url) throws IOException {
+        List<PhieuNghiemThu> listPhieuNghiemThu = new ArrayList<>();
         
         CloseableHttpClient client = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(BASE_URL + url);
@@ -43,20 +42,22 @@ public class DonHangService {
             result.append(line);
         }
         
-        listDonHang = new ObjectMapper().readValue(result.toString(), new TypeReference<List<DonHang>> () {});
-        return listDonHang;
-    }
-      
-    public List<DonHang> getAllDonHang() throws IOException{
-        return getAllDonHangByUrl("");
+        listPhieuNghiemThu = new ObjectMapper().readValue(result.toString(), new TypeReference<List<PhieuNghiemThu>> () {});
+        return listPhieuNghiemThu;
     }
     
-    public DonHang getDonHangByMaDh(String maDh) throws IOException {
+     public PhieuNghiemThu getPhieuNghiemThuByMaPhieu(String maPhieu) throws IOException {
         
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(BASE_URL + "/" + maDh);
+        HttpGet httpGet = new HttpGet(BASE_URL + "/" + maPhieu);
         
         CloseableHttpResponse response = client.execute(httpGet);
+        
+         int statusCode = response.getStatusLine().getStatusCode();
+
+         if (statusCode == 404) {
+              return null;
+          }
         
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         StringBuilder result = new StringBuilder();
@@ -64,28 +65,27 @@ public class DonHangService {
         while((line = reader.readLine()) != null) {
             result.append(line);
         }
-
-        return new ObjectMapper().readValue(result.toString(), new TypeReference<DonHang> () {});
+        
+        return new ObjectMapper().readValue(result.toString(), new TypeReference<PhieuNghiemThu> () {});
     }
     
-    public DonHang updateDonHang(String maDh, DonHang donHang) throws IOException {
+    public PhieuNghiemThu createPhieuNghiemThu(PhieuNghiemThu phieuNghiemThu) throws IOException {
         CloseableHttpClient client = HttpClients.createDefault();
-        HttpPut httpPut  = new HttpPut(BASE_URL  + "/" + maDh);
-        httpPut.setHeader("Content-Type", "application/json");
-
-        StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(donHang), StandardCharsets.UTF_8);
-        httpPut.setEntity(entity);
+        HttpPost httpPost = new HttpPost(BASE_URL);
+        httpPost.setHeader("Content-Type", "application/json");
         
-        CloseableHttpResponse response = client.execute(httpPut);
+        StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(phieuNghiemThu), StandardCharsets.UTF_8);
+        httpPost.setEntity(entity);
         
-        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), StandardCharsets.UTF_8));
-        StringBuilder result = new StringBuilder();
+        CloseableHttpResponse response = client.execute(httpPost);
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8")); 
         String line;
+        StringBuilder result = new StringBuilder();
         while((line = reader.readLine()) != null) {
             result.append(line);
         }
-
-           return new ObjectMapper().readValue(result.toString(), DonHang.class);
+        
+        return new ObjectMapper().readValue(result.toString(), PhieuNghiemThu.class);
     }
-    
 }

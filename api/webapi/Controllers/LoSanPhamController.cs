@@ -44,6 +44,17 @@ namespace webapi.Controllers
             return Ok(loSanPham.ToLoSanPhamDto());
         }
 
+        [HttpGet]
+        [Route("search/{MaYc}")]
+        public async Task<IActionResult> GetByMaYc([FromRoute] string MaYc)
+        {
+            var loSanPhams = await _loSanPhamRepository.GetByMaYcAsync(MaYc);
+
+            var loSanPhamDtos = loSanPhams.Select(x => x.ToLoSanPhamDto());
+
+            return Ok(loSanPhamDtos);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateLoSanPhamRequestDto createLoSanPhamRequestDto)
         {

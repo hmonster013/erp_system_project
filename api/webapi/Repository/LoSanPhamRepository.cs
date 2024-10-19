@@ -29,6 +29,13 @@ namespace webapi.Repositories
             return await _context.LoSanPhams.FindAsync(soLo);
         }
 
+        public async Task<List<LoSanPham?>> GetByMaYcAsync(string MaYc)
+        {
+            return await _context.LoSanPhams
+                                .Where(x => x.MaYc == MaYc)
+                                .ToListAsync();
+        }
+
         public async Task<LoSanPham> CreateAsync(LoSanPham loSanPhamModel)
         {
             _context.LoSanPhams.Add(loSanPhamModel);
@@ -50,6 +57,7 @@ namespace webapi.Repositories
             loSanPham.SoLuongSp = updateLoSanPhamDto.SoLuongSp ?? loSanPham.SoLuongSp;
             loSanPham.Nsx = updateLoSanPhamDto.Nsx ?? loSanPham.Nsx;
             loSanPham.Hsd = updateLoSanPhamDto.Hsd ?? loSanPham.Hsd;
+            loSanPham.TinhTrang = updateLoSanPhamDto.TinhTrang ?? loSanPham.TinhTrang;
 
             await _context.SaveChangesAsync();
             return loSanPham;

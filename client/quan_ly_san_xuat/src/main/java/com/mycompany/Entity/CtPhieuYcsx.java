@@ -11,28 +11,28 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @author Khoahihi79
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CtDonHang {
+public class CtPhieuYcsx {
     
-    private String MaDdh;
+    private String MaYc;
 
     private String MaSp;
 
-    private int SoLuong;
+    private int SoLuongSx;
     
-    public CtDonHang() {}
+    public CtPhieuYcsx() {}
 
-    public CtDonHang(String MaDdh, String MaSp, int SoLuong) {
-        this.MaDdh = MaDdh;
+    public CtPhieuYcsx(String MaYc, String MaSp, int SoLuongSx) {
+        this.MaYc = MaYc;
         this.MaSp = MaSp;
-        this.SoLuong = SoLuong;
+        this.SoLuongSx = SoLuongSx;
     }
 
-    public String getMaDdh() {
-        return MaDdh;
+    public String getMaYc() {
+        return MaYc;
     }
 
-    public void setMaDdh(String MaDdh) {
-        this.MaDdh = MaDdh;
+    public void setMaYc(String MaYc) {
+        this.MaYc = MaYc;
     }
 
     public String getMaSp() {
@@ -43,12 +43,12 @@ public class CtDonHang {
         this.MaSp = MaSp;
     }
 
-    public int getSoLuong() {
-        return SoLuong;
+    public int getSoLuongSx() {
+        return SoLuongSx;
     }
 
-    public void setSoLuong(int SoLuong) {
-        this.SoLuong = SoLuong;
+    public void setSoLuongSx(int SoLuongSx) {
+        this.SoLuongSx = SoLuongSx;
     }
     
     

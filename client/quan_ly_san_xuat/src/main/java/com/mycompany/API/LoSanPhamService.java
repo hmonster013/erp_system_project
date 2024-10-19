@@ -14,7 +14,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -33,6 +35,12 @@ public class LoSanPhamService {
         HttpGet httpGet = new HttpGet(BASE_URL + "/" + soLo);
         
         CloseableHttpResponse response = client.execute(httpGet);
+        
+        int statusCode = response.getStatusLine().getStatusCode();
+
+         if (statusCode == 404) {
+              return null;
+          }
         
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
         StringBuilder result = new StringBuilder();
@@ -67,6 +75,30 @@ public class LoSanPhamService {
         return getAllLoSanPhamByUrl("");
     }
     
+    public List<LoSanPham> getAllLoSanPhamByMaYc(String maYc) throws IOException{
+        return getAllLoSanPhamByUrl("/search/" + maYc);
+    }
+    
+    public LoSanPham createLoSanPham(LoSanPham loSanPham) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(BASE_URL);
+        httpPost.setHeader("Content-Type", "application/json");
+        
+        StringEntity entity = new StringEntity(new ObjectMapper().writeValueAsString(loSanPham), StandardCharsets.UTF_8);
+        httpPost.setEntity(entity);
+        
+        CloseableHttpResponse response = client.execute(httpPost);
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8")); 
+        String line;
+        StringBuilder result = new StringBuilder();
+        while((line = reader.readLine()) != null) {
+            result.append(line);
+        }
+        
+        return new ObjectMapper().readValue(result.toString(), LoSanPham.class);
+    }
+    
     public LoSanPham updateLoSanPham(String soLo, LoSanPham loSanPham) throws IOException {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpPut httpPut  = new HttpPut(BASE_URL + "/" + soLo);
@@ -85,5 +117,13 @@ public class LoSanPhamService {
         }
         
         return new ObjectMapper().readValue(result.toString(), LoSanPham.class);
+    }
+    
+    public boolean deleteLoSanPham(String soLo) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpDelete httpDelete = new HttpDelete(BASE_URL + "/" + soLo);
+        
+        CloseableHttpResponse response = client.execute(httpDelete);
+        return response.getStatusLine().getStatusCode() == 204;
     }
 }
