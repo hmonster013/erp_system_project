@@ -4,6 +4,7 @@
 
 package com.mycompany.quan_ly_ban_hang;
 
+import com.mycompany.View.fHomePage;
 import com.mycompany.View.fLogin;
 
 /**
@@ -13,7 +14,7 @@ import com.mycompany.View.fLogin;
 public class Quan_ly_ban_hang {
 
     public static void main(String[] args) {
-        fLogin test = new fLogin();
-        test.setVisible(true);
+        fHomePage mainScreen = new fHomePage(args[0]);
+        mainScreen.setVisible(true);
     }
 }

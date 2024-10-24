@@ -1,4 +1,4 @@
-package com.mycompany.dtos.loaisp;
+package com.mycompany.Dtos.LoaiSpt;
 
 public class LoaiSpDto {
 

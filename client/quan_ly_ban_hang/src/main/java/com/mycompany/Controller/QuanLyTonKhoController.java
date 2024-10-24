@@ -3,7 +3,7 @@ package com.mycompany.Controller;
 import com.mycompany.Dtos.SanPham.SanPhamDto;
 import com.mycompany.Model.LoaiSp;
 import com.mycompany.Model.SanPham;
-import com.mycompany.dtos.loaisp.LoaiSpDto;
+import com.mycompany.Dtos.LoaiSpt.LoaiSpDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

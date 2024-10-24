@@ -60,7 +60,7 @@ public class LoginForm extends javax.swing.JFrame {
                 // Đăng nhập thành công
                 JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
                 
-                openSubsystemHome(loginController.getMaBoPhan(username));
+                openSubsystemHome(loginController.getMaBoPhan(username), username);
             } else {
                 // Đăng nhập thất bại
                 JOptionPane.showMessageDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Lỗi đăng nhập", JOptionPane.ERROR_MESSAGE);
@@ -72,11 +72,13 @@ public class LoginForm extends javax.swing.JFrame {
     }
     
     // Hàm mở phân hệ tương ứng
-    private void openSubsystemHome(String subsystem) {
+    private void openSubsystemHome(String subsystem, String username) throws Exception {
         ProcessBuilder pb;
         switch (subsystem) {
             case "BP001":
-                Quan_ly_ban_hang.main(new String[0]);
+                TaiKhoan taiKhoanModel = new TaiKhoan();
+                String maNV = taiKhoanModel.getTaiKhoanByUsername(username).getMaNv();
+                Quan_ly_ban_hang.main(new String[]{maNV});  
                 this.setVisible(false);
                 
                 break;

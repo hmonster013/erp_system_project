@@ -6,7 +6,7 @@ package com.mycompany.Model;
 
 import com.google.gson.reflect.TypeToken;
 import java.util.List;
-import com.mycompany.dtos.loaisp.LoaiSpDto;
+import com.mycompany.Dtos.LoaiSpt.LoaiSpDto;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
