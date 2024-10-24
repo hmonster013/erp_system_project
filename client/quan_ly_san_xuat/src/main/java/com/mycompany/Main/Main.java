@@ -4,6 +4,8 @@
 
 package com.mycompany.Main;
 
+import com.mycompany.View.fHomePage;
+
 /**
  *
  * @author ACER
@@ -11,6 +13,7 @@ package com.mycompany.Main;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        fHomePage form = new fHomePage();
+        form.setVisible(true);
     }
 }

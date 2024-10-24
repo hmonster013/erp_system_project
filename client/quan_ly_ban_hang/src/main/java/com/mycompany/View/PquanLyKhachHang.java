@@ -16,11 +16,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 
-public class pQuanLyKhachHang extends javax.swing.JPanel {
+public class PquanLyKhachHang extends javax.swing.JPanel {
 
     private final QuanLyKhachHangController controller;
 
-    public pQuanLyKhachHang() {
+    public PquanLyKhachHang() {
         initComponents();
         controller = new QuanLyKhachHangController();
         loadKhachHangs();

@@ -6,6 +6,7 @@ package com.mycompany.View;
 
 import com.mycompany.Controller.DanhSachNghiemThuController;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JTable;
 
 /**
@@ -74,6 +75,11 @@ public class pNghiemThu extends javax.swing.JPanel {
         jLabel2.setText("DANH SÁCH PHIẾU NGHIỆM THU");
 
         jButton_them.setText("Tạo phiếu nghiệm thu");
+        jButton_them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_themActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel3.setText("CHI TIẾT PHIẾU NGHIỆM THU :");
@@ -125,6 +131,19 @@ public class pNghiemThu extends javax.swing.JPanel {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_themActionPerformed
+        pTaoPhieuNghiemTHu form = new pTaoPhieuNghiemTHu();
+
+        JDialog dialog = new JDialog();
+        dialog.setTitle("Tạo Phiếu Nghiệm Thu");
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.add(form);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setModal(true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jButton_themActionPerformed
 
  
     public JButton getjButton_them() {

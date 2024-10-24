@@ -18,7 +18,7 @@ public class fHomePage extends javax.swing.JFrame {
     private CardLayout cardLayout;
     private String maNv;
     
-    private pQuanLyKhachHang panelKhachHang;
+    private PquanLyKhachHang panelKhachHang;
     private pQuanLyDonHang panelDonHang;
     private pQuanLyHoaDon panelHoaDon;
     private pQuanLyTonKho panelTonKho;
@@ -39,7 +39,7 @@ public class fHomePage extends javax.swing.JFrame {
     }
     
     public void addSubPanel(){
-        panelKhachHang = new pQuanLyKhachHang();
+        panelKhachHang = new PquanLyKhachHang();
         mainpanel.add(panelKhachHang, "QuanLyKhachHang");
 
         panelDonHang = new pQuanLyDonHang(maNv);

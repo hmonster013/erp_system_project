@@ -16,15 +16,12 @@ import javax.swing.JMenuItem;
  */
 public class fHomePage extends javax.swing.JFrame {
     private CardLayout cardLayout;
-    private String maNv;
     
-    private pQuanLyKhachHang panelKhachHang;
-    private pQuanLyDonHang panelDonHang;
-    private pQuanLyHoaDon panelHoaDon;
-    private pQuanLyTonKho panelTonKho;
+    private pDonHang pDonHang;
+    private pNguyenVatLieu pNguyenVatLieu;
+    private pNhapSanPham pNhapSanPham;
     
-    public fHomePage(String maNv) {
-        this.maNv = maNv;
+    public fHomePage() {
         
         initComponents();
         setLocationRelativeTo(null);
@@ -39,17 +36,19 @@ public class fHomePage extends javax.swing.JFrame {
     }
     
     public void addSubPanel(){
-        panelKhachHang = new pQuanLyKhachHang();
-        mainpanel.add(panelKhachHang, "QuanLyKhachHang");
+        
+         pNhapSanPham = new pNhapSanPham();
+        mainpanel.add(pNhapSanPham, "QuanLySp");
+        
+         pNguyenVatLieu = new pNguyenVatLieu();
+        mainpanel.add(pNguyenVatLieu, "QuanLyNvl");
+        
+        pDonHang = new pDonHang();
+        mainpanel.add(pDonHang, "QuanLyDonHang");
 
-        panelDonHang = new pQuanLyDonHang(maNv);
-        mainpanel.add(panelDonHang, "QuanLyDonHang");
+       
 
-        panelHoaDon = new pQuanLyHoaDon(maNv);
-        mainpanel.add(panelHoaDon, "LapHoaDon");
-
-        panelTonKho = new pQuanLyTonKho();
-        mainpanel.add(panelTonKho, "XemHangTonKho");
+      
     }
     
     private void setupMenu() {
@@ -58,23 +57,22 @@ public class fHomePage extends javax.swing.JFrame {
         // Tạo menu và các mục trong menu
         JMenu menuQuanLy = new JMenu("Quản Lý");
         
-        JMenuItem menuItemKhachHang = new JMenuItem("Quản lý khách hàng");
-        menuItemKhachHang.addActionListener(e -> showPanel("QuanLyKhachHang"));
+        JMenuItem menuItemNvl = new JMenuItem("Quản lý Nguyên Vật Liệu");
+        menuItemNvl.addActionListener(e -> showPanel("QuanLyNvl"));
         
-        JMenuItem menuItemDonHang = new JMenuItem("Quản lý đơn hàng");
+        JMenuItem menuItemSp = new JMenuItem("Quản Lý Sản Phẩm");
+        menuItemSp.addActionListener(e -> showPanel("QuanLySp"));
+        
+        JMenuItem menuItemDonHang = new JMenuItem("Quản lý Đơn Hàng");
         menuItemDonHang.addActionListener(e -> showPanel("QuanLyDonHang"));
         
-        JMenuItem menuItemLapHoaDon = new JMenuItem("Lập hóa đơn");
-        menuItemLapHoaDon.addActionListener(e -> showPanel("LapHoaDon"));
         
-        JMenuItem menuItemTonKho = new JMenuItem("Xem hàng tồn kho");
-        menuItemTonKho.addActionListener(e -> showPanel("XemHangTonKho"));
         
         // Thêm các mục vào menu
-        menuQuanLy.add(menuItemKhachHang);
+        menuQuanLy.add(menuItemNvl);
+        menuQuanLy.add(menuItemSp);
         menuQuanLy.add(menuItemDonHang);
-        menuQuanLy.add(menuItemLapHoaDon);
-        menuQuanLy.add(menuItemTonKho);
+        
 
         // Thêm menu vào thanh menu
         menuBar.add(menuQuanLy);
@@ -85,20 +83,6 @@ public class fHomePage extends javax.swing.JFrame {
     
     // Phương thức chuyển đổi panel trong mainpanel
     private void showPanel(String panelName) {
-            switch (panelName) {
-                case "QuanLyKhachHang":
-                    panelKhachHang.loadKhachHangs();
-                    break;
-                case "QuanLyDonHang":
-//                    panelDonHang.loadKhachHangs();
-                    break;
-                case "LapHoaDon":
-//                    panelHoaDon.refreshData();
-                    break;
-                case "XemHangTonKho":
-                    panelTonKho.showAllProducts();
-                    break;
-            }
             cardLayout.show(mainpanel, panelName);
         }
 
@@ -125,17 +109,17 @@ public class fHomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 862, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

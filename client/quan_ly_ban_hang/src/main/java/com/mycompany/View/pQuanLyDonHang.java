@@ -62,7 +62,7 @@ public class pQuanLyDonHang extends javax.swing.JPanel {
     }
 
     private void createDonHang() {
-        pTaoDonHang taoDonHang = new pTaoDonHang(maNv);
+        PtaoDonHang taoDonHang = new PtaoDonHang(maNv);
 
         JDialog dialog = new JDialog();
         dialog.setTitle("Tạo Đơn Hàng Mới");
@@ -78,7 +78,7 @@ public class pQuanLyDonHang extends javax.swing.JPanel {
     private void updateDonHang() {
         int selectedRow = jTable_DonHang.getSelectedRow();
         if (selectedRow != -1) {
-            pCapNhatDH taoDonHang = new pCapNhatDH(jTable_DonHang.getValueAt(selectedRow, 0).toString());
+            PcapNhatDH taoDonHang = new PcapNhatDH(jTable_DonHang.getValueAt(selectedRow, 0).toString());
 
             JDialog dialog = new JDialog();
             dialog.setTitle("Cập nhật đơn hàng");

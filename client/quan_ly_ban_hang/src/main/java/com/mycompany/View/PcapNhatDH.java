@@ -18,12 +18,12 @@ import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
-public class pCapNhatDH extends javax.swing.JPanel {
+public class PcapNhatDH extends javax.swing.JPanel {
     private String maDdh;
     private QuanLyTonKhoController quanLyTonKhoController;
     private QuanLyDonHangController quanLyDonHangController;
     
-    public pCapNhatDH(String maDdh) {
+    public PcapNhatDH(String maDdh) {
         this.maDdh = maDdh;
         quanLyTonKhoController = new QuanLyTonKhoController();
         quanLyDonHangController = new QuanLyDonHangController();

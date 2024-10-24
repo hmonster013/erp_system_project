@@ -16,15 +16,14 @@ import javax.swing.JMenuItem;
  */
 public class fHomePage extends javax.swing.JFrame {
     private CardLayout cardLayout;
-    private String maNv;
     
-    private pQuanLyKhachHang panelKhachHang;
-    private pQuanLyDonHang panelDonHang;
-    private pQuanLyHoaDon panelHoaDon;
-    private pQuanLyTonKho panelTonKho;
+    private pDanhSachNVL panelDanhSachNVL;
+    private pDanhSachSP panelDanhSachSP;
+    private pDanhSachYeuCau panelDanhSachYeuCau;
+    private pNghiemThu panelNghiemThu;
+    private pQuanLyLoSP panelLoSP;
     
-    public fHomePage(String maNv) {
-        this.maNv = maNv;
+    public fHomePage() {
         
         initComponents();
         setLocationRelativeTo(null);
@@ -39,17 +38,20 @@ public class fHomePage extends javax.swing.JFrame {
     }
     
     public void addSubPanel(){
-        panelKhachHang = new pQuanLyKhachHang();
-        mainpanel.add(panelKhachHang, "QuanLyKhachHang");
+        panelDanhSachNVL = new pDanhSachNVL();
+        mainpanel.add(panelDanhSachNVL, "QuanLyNvl");
 
-        panelDonHang = new pQuanLyDonHang(maNv);
-        mainpanel.add(panelDonHang, "QuanLyDonHang");
+        panelDanhSachSP = new pDanhSachSP();
+        mainpanel.add(panelDanhSachSP, "QuanLySp");
 
-        panelHoaDon = new pQuanLyHoaDon(maNv);
-        mainpanel.add(panelHoaDon, "LapHoaDon");
+        panelDanhSachYeuCau = new pDanhSachYeuCau();
+        mainpanel.add(panelDanhSachYeuCau, "QuanLyYeuCau");
 
-        panelTonKho = new pQuanLyTonKho();
-        mainpanel.add(panelTonKho, "XemHangTonKho");
+        panelNghiemThu = new pNghiemThu();
+        mainpanel.add(panelNghiemThu, "QuanLyNghiemThu");
+        
+        panelLoSP = new pQuanLyLoSP();
+        mainpanel.add(panelLoSP, "QuanLyLoSp");
     }
     
     private void setupMenu() {
@@ -58,23 +60,27 @@ public class fHomePage extends javax.swing.JFrame {
         // Tạo menu và các mục trong menu
         JMenu menuQuanLy = new JMenu("Quản Lý");
         
-        JMenuItem menuItemKhachHang = new JMenuItem("Quản lý khách hàng");
-        menuItemKhachHang.addActionListener(e -> showPanel("QuanLyKhachHang"));
+        JMenuItem menuItemNvl = new JMenuItem("Nguyên vật liệu");
+        menuItemNvl.addActionListener(e -> showPanel("QuanLyNvl"));
         
-        JMenuItem menuItemDonHang = new JMenuItem("Quản lý đơn hàng");
-        menuItemDonHang.addActionListener(e -> showPanel("QuanLyDonHang"));
+        JMenuItem menuItemSp = new JMenuItem("Sản phẩm");
+        menuItemSp.addActionListener(e -> showPanel("QuanLySp"));
         
-        JMenuItem menuItemLapHoaDon = new JMenuItem("Lập hóa đơn");
-        menuItemLapHoaDon.addActionListener(e -> showPanel("LapHoaDon"));
+        JMenuItem menuItemYcsx = new JMenuItem("Yêu cầu sản xuất");
+        menuItemYcsx.addActionListener(e -> showPanel("QuanLyYeuCau"));
         
-        JMenuItem menuItemTonKho = new JMenuItem("Xem hàng tồn kho");
-        menuItemTonKho.addActionListener(e -> showPanel("XemHangTonKho"));
+        JMenuItem menuItemNghiemThu = new JMenuItem("Nghiệm thu");
+        menuItemNghiemThu.addActionListener(e -> showPanel("QuanLyNghiemThu"));
+        
+        JMenuItem menuItemLoSp = new JMenuItem("Lô sản phẩm");
+        menuItemLoSp.addActionListener(e -> showPanel("QuanLyLoSp"));
         
         // Thêm các mục vào menu
-        menuQuanLy.add(menuItemKhachHang);
-        menuQuanLy.add(menuItemDonHang);
-        menuQuanLy.add(menuItemLapHoaDon);
-        menuQuanLy.add(menuItemTonKho);
+        menuQuanLy.add(menuItemNvl);
+        menuQuanLy.add(menuItemSp);
+        menuQuanLy.add(menuItemYcsx);
+        menuQuanLy.add(menuItemNghiemThu);
+        menuQuanLy.add(menuItemLoSp);
 
         // Thêm menu vào thanh menu
         menuBar.add(menuQuanLy);
@@ -85,20 +91,6 @@ public class fHomePage extends javax.swing.JFrame {
     
     // Phương thức chuyển đổi panel trong mainpanel
     private void showPanel(String panelName) {
-            switch (panelName) {
-                case "QuanLyKhachHang":
-                    panelKhachHang.loadKhachHangs();
-                    break;
-                case "QuanLyDonHang":
-//                    panelDonHang.loadKhachHangs();
-                    break;
-                case "LapHoaDon":
-//                    panelHoaDon.refreshData();
-                    break;
-                case "XemHangTonKho":
-                    panelTonKho.showAllProducts();
-                    break;
-            }
             cardLayout.show(mainpanel, panelName);
         }
 
@@ -125,17 +117,17 @@ public class fHomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 862, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 916, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

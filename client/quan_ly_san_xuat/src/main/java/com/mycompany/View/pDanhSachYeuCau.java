@@ -6,6 +6,7 @@ package com.mycompany.View;
 
 import com.mycompany.Controller.DanhSachYeuCauController;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JTable;
 
 /**
@@ -74,6 +75,11 @@ public class pDanhSachYeuCau extends javax.swing.JPanel {
         jLabel2.setText("CHI TIẾT PHIẾU YÊU CẦU SẢN XUẤT");
 
         jButton_them.setText("Tạo phiếu YCSX");
+        jButton_them.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_themActionPerformed(evt);
+            }
+        });
 
         jTextField_chitiet.setEnabled(false);
 
@@ -117,6 +123,19 @@ public class pDanhSachYeuCau extends javax.swing.JPanel {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_themActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_themActionPerformed
+        pTaoYeuCauSX form = new pTaoYeuCauSX();
+
+        JDialog dialog = new JDialog();
+        dialog.setTitle("Tạo Yêu Cầu Sản Xuất");
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.add(form);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
+        dialog.setModal(true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jButton_themActionPerformed
 
 
     public JButton getjButton_them() {

@@ -4,6 +4,7 @@
 
 package com.mycompany.Main;
 
+import com.mycompany.View.fHomePage;
 import java.sql.Connection;
 
 /**
@@ -13,7 +14,8 @@ import java.sql.Connection;
 public class MainClass {
 
     public static void main(String[] args) {
-        
+        fHomePage form = new fHomePage();
+        form.setVisible(true);
     }
 }
 

@@ -23,13 +23,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 
-public class pTaoDonHang extends javax.swing.JPanel {
+public class PtaoDonHang extends javax.swing.JPanel {
     private String maNv;
     private QuanLyKhachHangController quanLyKhachHangController;
     private QuanLyTonKhoController quanLyTonKhoController;
     private QuanLyDonHangController quanLyDonHangController;
     
-    public pTaoDonHang(String maNv) {
+    public PtaoDonHang(String maNv) {
         this.maNv = maNv;
         quanLyKhachHangController = new QuanLyKhachHangController();
         quanLyTonKhoController = new QuanLyTonKhoController();
