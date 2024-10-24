@@ -57,15 +57,33 @@ public class pDanhSachSP extends javax.swing.JPanel {
         jButton_quaylai = new javax.swing.JButton();
         jSpinner_giaBan = new javax.swing.JSpinner();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton_timkiem.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_timkiem.setForeground(new java.awt.Color(255, 255, 255));
         jButton_timkiem.setText("Tìm Kiếm");
 
+        jButton_them.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_them.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_them.setForeground(new java.awt.Color(255, 255, 255));
         jButton_them.setText("Thêm mới");
 
+        jButton_sua.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_sua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_sua.setForeground(new java.awt.Color(255, 255, 255));
         jButton_sua.setText("Cập nhật thông tin");
 
+        jButton_xoa.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_xoa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_xoa.setForeground(new java.awt.Color(255, 255, 255));
         jButton_xoa.setText("Xóa");
 
+        jLabel1.setBackground(new java.awt.Color(0, 153, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("DANH SÁCH SẢN PHẨM");
+        jLabel1.setOpaque(true);
 
         jLabel2.setText("Loại sản phẩm");
 
@@ -98,6 +116,8 @@ public class pDanhSachSP extends javax.swing.JPanel {
 
         jLabel10.setText("Giá bán");
 
+        jButton_quaylai.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_quaylai.setForeground(new java.awt.Color(255, 255, 255));
         jButton_quaylai.setText("Quay lại");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -116,8 +136,7 @@ public class pDanhSachSP extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField_masp, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1))
+                                .addComponent(jTextField_masp, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 222, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,13 +147,6 @@ public class pDanhSachSP extends javax.swing.JPanel {
                                     .addComponent(jButton_xoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton_sua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton_them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jTextField_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(jButton_timkiem)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton_quaylai))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -153,18 +165,27 @@ public class pDanhSachSP extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addComponent(jSpinner_giaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jTextField_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jButton_timkiem)
+                .addGap(32, 32, 32)
+                .addComponent(jButton_quaylai)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_timkiem)
                     .addComponent(jButton_quaylai))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox_loaisp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

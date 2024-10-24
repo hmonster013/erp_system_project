@@ -62,6 +62,8 @@ public class pTaoPhieuNghiemTHu extends javax.swing.JPanel {
         jButton_nghiemthu = new javax.swing.JButton();
         jButton_hoanthnah = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jTable_ycsx.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -101,8 +103,12 @@ public class pTaoPhieuNghiemTHu extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(jTable_daNghiemThu);
 
+        jLabel1.setBackground(new java.awt.Color(0, 153, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("TẠO PHIẾU NGHIỆM THU");
+        jLabel1.setOpaque(true);
 
         jLabel2.setText("Phiếu yêu cầu sản xuất");
 
@@ -114,6 +120,8 @@ public class pTaoPhieuNghiemTHu extends javax.swing.JPanel {
 
         jLabel6.setText("Ngày nghiệm thu");
 
+        jButton_taophieu.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_taophieu.setForeground(new java.awt.Color(255, 255, 255));
         jButton_taophieu.setText("Tạo phiếu nghiệm thu");
         jButton_taophieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,8 +141,12 @@ public class pTaoPhieuNghiemTHu extends javax.swing.JPanel {
         jTextArea_ketquanghiemthu.setRows(5);
         jScrollPane4.setViewportView(jTextArea_ketquanghiemthu);
 
+        jButton_nghiemthu.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_nghiemthu.setForeground(new java.awt.Color(255, 255, 255));
         jButton_nghiemthu.setText("Nghiệm thu");
 
+        jButton_hoanthnah.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_hoanthnah.setForeground(new java.awt.Color(255, 255, 255));
         jButton_hoanthnah.setText("Hoàn thành");
         jButton_hoanthnah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +173,6 @@ public class pTaoPhieuNghiemTHu extends javax.swing.JPanel {
                                 .addComponent(jLabel2)
                                 .addGap(29, 29, 29)
                                 .addComponent(jComboBox_phieuyeucau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -205,13 +216,14 @@ public class pTaoPhieuNghiemTHu extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(74, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jComboBox_phieuyeucau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

@@ -48,12 +48,25 @@ public class pDanhSachNVL extends javax.swing.JPanel {
         jTextField_ghichu = new javax.swing.JTextField();
         jButton_quaylai = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton_timkiem.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_timkiem.setForeground(new java.awt.Color(255, 255, 255));
         jButton_timkiem.setText("Tìm Kiếm");
 
+        jButton_them.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_them.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton_them.setForeground(new java.awt.Color(255, 255, 255));
         jButton_them.setText("Thêm mới");
 
+        jButton_sua.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_sua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton_sua.setForeground(new java.awt.Color(255, 255, 255));
         jButton_sua.setText("Cập nhật thông tin");
 
+        jButton_xoa.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_xoa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton_xoa.setForeground(new java.awt.Color(255, 255, 255));
         jButton_xoa.setText("Xóa");
 
         jLabel1.setText("DANH SÁCH NGUYÊN VẬT LIỆU");
@@ -77,6 +90,8 @@ public class pDanhSachNVL extends javax.swing.JPanel {
 
         jLabel4.setText("Ghi chú");
 
+        jButton_quaylai.setBackground(new java.awt.Color(0, 153, 255));
+        jButton_quaylai.setForeground(new java.awt.Color(255, 255, 255));
         jButton_quaylai.setText("Quay Lại");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -119,8 +134,8 @@ public class pDanhSachNVL extends javax.swing.JPanel {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton_them, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                                    .addComponent(jButton_xoa, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                                    .addComponent(jButton_them, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton_xoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton_sua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(61, 61, 61))))
         );
