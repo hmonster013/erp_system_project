@@ -73,11 +73,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Javaa\NetBeansProjects\ThiTracNghiem\src\main\java\icons\LoginImage.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -163,9 +158,6 @@
         <Component class="javax.swing.JLabel" name="eye_show">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Javaa\NetBeansProjects\ThiTracNghiem\src\main\java\icons\icons8-eye-24.png"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="eye_showMouseClicked"/>
@@ -216,9 +208,6 @@
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Javaa\NetBeansProjects\ThiTracNghiem\src\main\java\icons\icons8-user-24.png"/>
-            </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -304,9 +293,6 @@
         <Component class="javax.swing.JLabel" name="eye_hidden">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Javaa\NetBeansProjects\ThiTracNghiem\src\main\java\icons\icons8-invisible-24 (2).png"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="eye_hiddenMouseClicked"/>
