@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.Main;
+package com.mycompany.MainQLK;
 
-import com.mycompany.View.fHomePage;
+import com.mycompany.View.fHomePageQLK;
 import java.sql.Connection;
 
 /**
  *
  * @author ACER
  */
-public class MainClass {
+public class QuanLyKho {
 
     public static void main(String[] args) {
-        fHomePage form = new fHomePage();
+        fHomePageQLK form = new fHomePageQLK();
         form.setVisible(true);
     }
 }

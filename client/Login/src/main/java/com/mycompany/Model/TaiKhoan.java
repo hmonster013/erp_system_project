@@ -42,4 +42,10 @@ public class TaiKhoan {
         String endpoint = String.format("/%s", username);
         return apiClient.delete(endpoint);
     }
+    
+    public String getMaBoPhan(String MaNV) throws Exception{
+        ApiClient apiClient1 = new ApiClient("http://localhost:5106/api/bophan");
+        String endpoint = String.format("/%s", MaNV);
+        return apiClient1.get(endpoint, String.class);
+    }
 }

@@ -31,4 +31,14 @@ public class LoginController {
             return false;
         }
     }
+    
+    public String getMaBoPhan(String username) {
+        try {
+            TaiKhoanDto dto = taiKhoanModel.getTaiKhoanByUsername(username);
+            
+            return taiKhoanModel.getMaBoPhan(dto.getMaNv());
+        } catch (Exception e) {
+            return "";
+        }
+    }
 }

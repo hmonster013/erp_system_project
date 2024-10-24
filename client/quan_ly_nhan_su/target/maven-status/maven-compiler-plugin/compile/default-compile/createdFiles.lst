@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-com\mycompany\quan_ly_nhan_su\view\pQuanLyPhuCap.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyBacLuong.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyChinhSach.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyChucVu.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyBaoHiem.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyHoSoNV.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyTaiKhoan.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyBoPhan.class
-com\mycompany\quan_ly_nhan_su\view\pQuanLyHopDong.class
-com\mycompany\quan_ly_nhan_su\Quan_ly_nhan_su.class
-=======
 com\mycompany\View\pQuanLyBoPhan.class
 com\mycompany\View\pQuanLyTaiKhoan$1.class
 com\mycompany\View\Home$3.class
@@ -66,11 +54,11 @@ com\mycompany\View\Login$1.class
 com\mycompany\View\pQuanLyBaoHiem$4.class
 com\mycompany\View\pQuanLyHopDong.class
 com\mycompany\Controller\QuanLyChucVuController.class
+com\mycompany\MainQLNS\QuanLyNhanSu.class
 com\mycompany\Controller\QuanLyBacLuongController$1.class
 com\mycompany\View\pQuanLyBoPhan$2.class
 com\mycompany\Controller\QuanLyBoPhanController$2.class
 com\mycompany\Model\QuanLyTaiKhoanModel.class
-com\mycompany\Main\Main.class
 com\mycompany\View\pQuanLyHoSoNV$1.class
 com\mycompany\View\Home$5.class
 com\mycompany\Model\QuanLyBoPhanModel.class
@@ -90,4 +78,3 @@ com\mycompany\Model\QuanLyChucVuModel.class
 com\mycompany\View\Home$1.class
 com\mycompany\View\pQuanLyBacLuong$2.class
 com\mycompany\View\pDanhSachBaoHiem$1.class
->>>>>>> a7b53c7af7a05b2bb2af14e3714a4e260c1e78cc

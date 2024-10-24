@@ -7,6 +7,10 @@ package com.mycompany.View;
 import com.mycompany.Controller.LoginController;
 import com.mycompany.Model.TaiKhoan;
 import com.mycompany.quan_ly_ban_hang.Quan_ly_ban_hang;
+import com.mycompany.MainQLSX.QuanLySanXuat;
+import com.mycompany.MainQLNS.QuanLyNhanSu;
+import com.mycompany.MainQLK.QuanLyKho;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
@@ -21,10 +25,12 @@ import javax.swing.JOptionPane;
  * @author Khoahihi79
  */
 public class LoginForm extends javax.swing.JFrame {
-
+    LoginController loginController;
     
     public LoginForm() {
         initComponents();
+        loginController = new LoginController();
+        
         txtusername.setBackground(new java.awt.Color(0,0,0,1));
         txtpassword.setBackground(new java.awt.Color(0,0,0,1));
         eye_show.setVisible(false);
@@ -53,10 +59,8 @@ public class LoginForm extends javax.swing.JFrame {
             if (loginController.login(username, password)) {
                 // Đăng nhập thành công
                 JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
-                Quan_ly_ban_hang.main(new String[0]);
                 
-                this.dispose();
-
+                openSubsystemHome(loginController.getMaBoPhan(username));
             } else {
                 // Đăng nhập thất bại
                 JOptionPane.showMessageDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Lỗi đăng nhập", JOptionPane.ERROR_MESSAGE);
@@ -69,27 +73,37 @@ public class LoginForm extends javax.swing.JFrame {
     
     // Hàm mở phân hệ tương ứng
     private void openSubsystemHome(String subsystem) {
-    try {
         ProcessBuilder pb;
         switch (subsystem) {
-            case "quanlykho":
-                String pathToKhoJar = "C:/path/to/quanlykho.jar"; // Đường dẫn tới file .jar của phân hệ quản lý kho
-                pb = new ProcessBuilder("java", "-jar", pathToKhoJar);
-                pb.start(); // Khởi chạy file .jar của phân hệ quản lý kho
+            case "BP001":
+                Quan_ly_ban_hang.main(new String[0]);
+                this.setVisible(false);
+                
                 break;
-            case "quanlysanxuat":
-                String pathToSanXuatJar = "C:/path/to/quanlysanxuat.jar"; // Đường dẫn tới file .jar của phân hệ quản lý sản xuất
-                pb = new ProcessBuilder("java", "-jar", pathToSanXuatJar);
-                pb.start(); // Khởi chạy file .jar của phân hệ quản lý sản xuất
+            case "BP002":
+                QuanLySanXuat.main(new String[0]);
+                this.setVisible(false);
+                
+                break;
+            case "BP003":
+                QuanLyNhanSu.main(new String[0]);
+                this.setVisible(false);
+                
+                break;
+            case "BP004":
+                QuanLyKho.main(new String[0]);
+                this.setVisible(false);
+                
+                break;
+            case "BP005":
+                Quan_ly_ban_hang.main(new String[0]);
+                this.setVisible(false);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Không tìm thấy phân hệ.");
                 break;
         }
         this.dispose(); // Đóng form đăng nhập sau khi khởi chạy phân hệ
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
 }
     
     

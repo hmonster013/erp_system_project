@@ -14,14 +14,16 @@ import javax.swing.JMenuItem;
  *
  * @author ACER
  */
-public class fHomePage extends javax.swing.JFrame {
+public class fHomePageQLSX extends javax.swing.JFrame {
     private CardLayout cardLayout;
     
-    private pDonHang pDonHang;
-    private pNguyenVatLieu pNguyenVatLieu;
-    private pNhapSanPham pNhapSanPham;
+    private pDanhSachNVL panelDanhSachNVL;
+    private pDanhSachSP panelDanhSachSP;
+    private pDanhSachYeuCau panelDanhSachYeuCau;
+    private pNghiemThu panelNghiemThu;
+    private pQuanLyLoSP panelLoSP;
     
-    public fHomePage() {
+    public fHomePageQLSX() {
         
         initComponents();
         setLocationRelativeTo(null);
@@ -36,20 +38,20 @@ public class fHomePage extends javax.swing.JFrame {
     }
     
     public void addSubPanel(){
-        
-         pNhapSanPham = new pNhapSanPham();
-        mainpanel.add(pNhapSanPham, "QuanLySp");
-        
-        
-         pNguyenVatLieu = new pNguyenVatLieu();
-        mainpanel.add(pNguyenVatLieu, "QuanLyNvl");
-        
-        pDonHang = new pDonHang();
-        mainpanel.add(pDonHang, "QuanLyDonHang");
+        panelDanhSachNVL = new pDanhSachNVL();
+        mainpanel.add(panelDanhSachNVL, "QuanLyNvl");
 
-       
+        panelDanhSachSP = new pDanhSachSP();
+        mainpanel.add(panelDanhSachSP, "QuanLySp");
 
-      
+        panelDanhSachYeuCau = new pDanhSachYeuCau();
+        mainpanel.add(panelDanhSachYeuCau, "QuanLyYeuCau");
+
+        panelNghiemThu = new pNghiemThu();
+        mainpanel.add(panelNghiemThu, "QuanLyNghiemThu");
+        
+        panelLoSP = new pQuanLyLoSP();
+        mainpanel.add(panelLoSP, "QuanLyLoSp");
     }
     
     private void setupMenu() {
@@ -58,23 +60,27 @@ public class fHomePage extends javax.swing.JFrame {
         // Tạo menu và các mục trong menu
         JMenu menuQuanLy = new JMenu("Quản Lý");
         
-                
-        JMenuItem menuItemSp = new JMenuItem("Quản Lý Sản Phẩm");
+        JMenuItem menuItemNvl = new JMenuItem("Nguyên vật liệu");
+        menuItemNvl.addActionListener(e -> showPanel("QuanLyNvl"));
+        
+        JMenuItem menuItemSp = new JMenuItem("Sản phẩm");
         menuItemSp.addActionListener(e -> showPanel("QuanLySp"));
         
-        JMenuItem menuItemNvl = new JMenuItem("Quản lý Nguyên Vật Liệu");
-        menuItemNvl.addActionListener(e -> showPanel("QuanLyNvl"));
-
-        JMenuItem menuItemDonHang = new JMenuItem("Quản lý Đơn Hàng");
-        menuItemDonHang.addActionListener(e -> showPanel("QuanLyDonHang"));
+        JMenuItem menuItemYcsx = new JMenuItem("Yêu cầu sản xuất");
+        menuItemYcsx.addActionListener(e -> showPanel("QuanLyYeuCau"));
         
+        JMenuItem menuItemNghiemThu = new JMenuItem("Nghiệm thu");
+        menuItemNghiemThu.addActionListener(e -> showPanel("QuanLyNghiemThu"));
         
+        JMenuItem menuItemLoSp = new JMenuItem("Lô sản phẩm");
+        menuItemLoSp.addActionListener(e -> showPanel("QuanLyLoSp"));
         
         // Thêm các mục vào menu
-        menuQuanLy.add(menuItemSp);
         menuQuanLy.add(menuItemNvl);
-        menuQuanLy.add(menuItemDonHang);
-        
+        menuQuanLy.add(menuItemSp);
+        menuQuanLy.add(menuItemYcsx);
+        menuQuanLy.add(menuItemNghiemThu);
+        menuQuanLy.add(menuItemLoSp);
 
         // Thêm menu vào thanh menu
         menuBar.add(menuQuanLy);
@@ -111,17 +117,17 @@ public class fHomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 862, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
