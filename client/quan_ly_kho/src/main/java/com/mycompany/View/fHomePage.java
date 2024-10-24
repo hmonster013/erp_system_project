@@ -40,6 +40,7 @@ public class fHomePage extends javax.swing.JFrame {
          pNhapSanPham = new pNhapSanPham();
         mainpanel.add(pNhapSanPham, "QuanLySp");
         
+        
          pNguyenVatLieu = new pNguyenVatLieu();
         mainpanel.add(pNguyenVatLieu, "QuanLyNvl");
         
@@ -57,20 +58,21 @@ public class fHomePage extends javax.swing.JFrame {
         // Tạo menu và các mục trong menu
         JMenu menuQuanLy = new JMenu("Quản Lý");
         
-        JMenuItem menuItemNvl = new JMenuItem("Quản lý Nguyên Vật Liệu");
-        menuItemNvl.addActionListener(e -> showPanel("QuanLyNvl"));
-        
+                
         JMenuItem menuItemSp = new JMenuItem("Quản Lý Sản Phẩm");
         menuItemSp.addActionListener(e -> showPanel("QuanLySp"));
         
+        JMenuItem menuItemNvl = new JMenuItem("Quản lý Nguyên Vật Liệu");
+        menuItemNvl.addActionListener(e -> showPanel("QuanLyNvl"));
+
         JMenuItem menuItemDonHang = new JMenuItem("Quản lý Đơn Hàng");
         menuItemDonHang.addActionListener(e -> showPanel("QuanLyDonHang"));
         
         
         
         // Thêm các mục vào menu
-        menuQuanLy.add(menuItemNvl);
         menuQuanLy.add(menuItemSp);
+        menuQuanLy.add(menuItemNvl);
         menuQuanLy.add(menuItemDonHang);
         
 
@@ -112,14 +114,14 @@ public class fHomePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 786, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();

@@ -11,6 +11,11 @@
             <artifactId>jcalendar</artifactId>
             <version>1.4</version>
         </dependency>
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>12.8.1.jre11</version>
+         </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,4 +23,5 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.quan_ly_nhan_su.Quan_ly_nhan_su</exec.mainClass>
     </properties>
+    
 </project>
