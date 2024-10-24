@@ -200,6 +200,7 @@ CREATE TABLE LoSanPham (
     SoLuongSP INT,
     NSX DATE,
     HSD DATE,
+    TinhTrang varchar(20),
     FOREIGN KEY (MaYC) REFERENCES PhieuYCSX(MaYC),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
 );
