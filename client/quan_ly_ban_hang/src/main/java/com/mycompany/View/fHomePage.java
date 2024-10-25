@@ -52,6 +52,13 @@ public class fHomePage extends javax.swing.JFrame {
         mainpanel.add(panelTonKho, "XemHangTonKho");
     }
     
+     private void logOut() {                                             
+        this.setVisible(false);
+        this.dispose();
+        LoginForm loginForm = new LoginForm();
+        loginForm.setVisible(true);
+    }     
+    
     private void setupMenu() {
         JMenuBar menuBar = new JMenuBar();
 
@@ -70,11 +77,15 @@ public class fHomePage extends javax.swing.JFrame {
         JMenuItem menuItemTonKho = new JMenuItem("Xem hàng tồn kho");
         menuItemTonKho.addActionListener(e -> showPanel("XemHangTonKho"));
         
+        JMenuItem menuItemDangXuat = new JMenuItem("Đăng xuất");
+        menuItemDangXuat.addActionListener(e -> logOut());
+        
         // Thêm các mục vào menu
         menuQuanLy.add(menuItemKhachHang);
         menuQuanLy.add(menuItemDonHang);
         menuQuanLy.add(menuItemLapHoaDon);
         menuQuanLy.add(menuItemTonKho);
+         menuQuanLy.add(menuItemDangXuat);
 
         // Thêm menu vào thanh menu
         menuBar.add(menuQuanLy);

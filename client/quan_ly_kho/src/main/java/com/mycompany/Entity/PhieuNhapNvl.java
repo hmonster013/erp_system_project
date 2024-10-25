@@ -24,10 +24,11 @@ public class PhieuNhapNvl {
     
     public PhieuNhapNvl() {}
 
-    public PhieuNhapNvl(String MaPnnvl, String NgayNhap, String MaNcc) {
+    public PhieuNhapNvl(String MaPnnvl, String NgayNhap, String MaNcc, String MaNv) {
         this.MaPnnvl = MaPnnvl;
         this.NgayNhap = NgayNhap;
         this.MaNcc = MaNcc;
+        this.MaNv = MaNv;
     }
 
     public String getMaPnnvl() {

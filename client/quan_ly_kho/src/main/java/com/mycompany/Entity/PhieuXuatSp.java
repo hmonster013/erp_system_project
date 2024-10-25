@@ -23,10 +23,11 @@ public class PhieuXuatSp {
     
     public PhieuXuatSp() {}
 
-    public PhieuXuatSp(String MaPxsp, String MaDdh, String NgayXuat) {
+    public PhieuXuatSp(String MaPxsp, String MaDdh, String NgayXuat, String MaNv) {
         this.MaPxsp = MaPxsp;
         this.MaDdh = MaDdh;
         this.NgayXuat = NgayXuat;
+        this.MaNv = MaNv;
     }
 
     public String getMaPxsp() {

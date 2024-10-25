@@ -4,7 +4,7 @@
 
 package com.mycompany.MainQLSX;
 
-import com.mycompany.View.fHomePageQLSX;
+import com.mycompany.QLSX.View.fHomePageQLSX;
 
 /**
  *
@@ -12,8 +12,8 @@ import com.mycompany.View.fHomePageQLSX;
  */
 public class QuanLySanXuat {
 
-    public static void main(String[] args) {
-        fHomePageQLSX form = new fHomePageQLSX();
+    public static void main(String[] args, String maNv) {
+        fHomePageQLSX form = new fHomePageQLSX(maNv);
         form.setVisible(true);
     }
 }

@@ -22,9 +22,10 @@ public class PhieuNhapSp {
     
     public PhieuNhapSp() {}
 
-    public PhieuNhapSp(String MaPnsp, String NgayNhap) {
+    public PhieuNhapSp(String MaPnsp, String NgayNhap, String MaNv) {
         this.MaPnsp = MaPnsp;
         this.NgayNhap = NgayNhap;
+        this.MaNv = MaNv;
     }
 
     public String getMaPnsp() {

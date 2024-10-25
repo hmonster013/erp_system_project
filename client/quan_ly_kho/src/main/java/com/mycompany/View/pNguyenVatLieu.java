@@ -4,7 +4,7 @@
  */
 package com.mycompany.View;
 
-import com.mycompany.Controller.NguyenVatLieuController;
+import com.mycompany.QLK.Controller.NguyenVatLieuController;
 import com.toedter.calendar.JDateChooser;
 import java.sql.Date;
 import javax.swing.JButton;
@@ -18,17 +18,16 @@ import javax.swing.JTextField;
  */
 public class pNguyenVatLieu extends javax.swing.JPanel {
 
-    /**
-     * Creates new form pNguyenVatLieu
-     */
-    public pNguyenVatLieu() {
+    private String maNv;
+    public pNguyenVatLieu(String maNv) {
+        this.maNv = maNv;
         initComponents();
         jButton_huy.setEnabled(false);
         jButton_luu.setEnabled(false);
         jButton_nhapKho.setEnabled(false);
         jTextField_tenNVL1.setEnabled(false);
         jTextField_soLuongTon.setEnabled(false);
-        NguyenVatLieuController nguyenVatLieuController = new NguyenVatLieuController(this);
+        NguyenVatLieuController nguyenVatLieuController = new NguyenVatLieuController(this, maNv);
     }
 
     /**

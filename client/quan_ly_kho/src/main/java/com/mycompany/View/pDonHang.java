@@ -4,7 +4,7 @@
  */
 package com.mycompany.View;
 
-import com.mycompany.Controller.DonHangController;
+import com.mycompany.QLK.Controller.DonHangController;
 import com.toedter.calendar.JDateChooser;
 import java.sql.Date;
 import javax.swing.ButtonGroup;
@@ -19,14 +19,13 @@ import javax.swing.JTable;
  */
 public class pDonHang extends javax.swing.JPanel {
 
-    /**
-     * Creates new form fDonHang
-     */
-    public pDonHang() {
+    private String maNv;
+    public pDonHang(String maNv) {
+        this.maNv = maNv;
         initComponents();
         jButton_xuatKho.setEnabled(false);
         jButton_capNhat.setEnabled(false);
-        DonHangController form = new DonHangController(this);
+        DonHangController form = new DonHangController(this, maNv);
     }
 
     /**
@@ -48,7 +47,6 @@ public class pDonHang extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jTextField_maDH = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jButton_themPX = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -155,17 +153,6 @@ public class pDonHang extends javax.swing.JPanel {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton_themPX.setBackground(new java.awt.Color(102, 204, 255));
-        jButton_themPX.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton_themPX.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_themPX.setText("Thêm phiếu xuất");
-        jButton_themPX.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton_themPX.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_themPXActionPerformed(evt);
-            }
-        });
-
         jLabel2.setBackground(new java.awt.Color(3, 169, 244));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,7 +194,7 @@ public class pDonHang extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField_maPX, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jDateChooser_ngayXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,11 +266,11 @@ public class pDonHang extends javax.swing.JPanel {
                             .addComponent(jLabel8))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField_maMH, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                            .addComponent(jTextField_tenMH, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                            .addComponent(jTextField_maMH)
+                            .addComponent(jTextField_tenMH)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButton_xuatKho, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                                 .addComponent(jButton_hoanThanh, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jSpinner_soLuongXuat))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -339,9 +326,9 @@ public class pDonHang extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jRadioButton_dangXuLy)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jRadioButton_daXuatKho)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jButton_capNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -361,41 +348,33 @@ public class pDonHang extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton_themPX, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(19, 19, 19)
-                .addComponent(jButton_themPX, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(53, 53, 53))
         );
 
         add(jPanel4);
         jPanel4.setBounds(490, 0, 400, 610);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton_themPXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_themPXActionPerformed
-        jPanel4.setVisible(true);
-        jButton_themPX.setEnabled(false);
-    }//GEN-LAST:event_jButton_themPXActionPerformed
 
     private void jButton_hoanThanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_hoanThanhActionPerformed
         clearTextFileds();
@@ -445,9 +424,6 @@ public class pDonHang extends javax.swing.JPanel {
         return jButton_taoPhieu;
     }
 
-    public JButton getjButton_themPX() {
-        return jButton_themPX;
-    }
 
     public JButton getjButton_xuatKho() {
         return jButton_xuatKho;
@@ -516,7 +492,6 @@ public class pDonHang extends javax.swing.JPanel {
     private javax.swing.JButton jButton_capNhat;
     private javax.swing.JButton jButton_hoanThanh;
     private javax.swing.JButton jButton_taoPhieu;
-    private javax.swing.JButton jButton_themPX;
     private javax.swing.JButton jButton_xuatKho;
     private com.toedter.calendar.JDateChooser jDateChooser_ngayXuat;
     private javax.swing.JLabel jLabel1;

@@ -4,6 +4,7 @@
  */
 package com.mycompany.View;
 
+import com.mycompany.QLK.Controller.NhapKhoSanPhamController;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import javax.swing.JMenu;
@@ -16,18 +17,20 @@ import javax.swing.JMenuItem;
  */
 public class fHomePageQLK extends javax.swing.JFrame {
     private CardLayout cardLayout;
-    
+    private String maNv;
     private pDonHang pDonHang;
     private pNguyenVatLieu pNguyenVatLieu;
     private pNhapSanPham pNhapSanPham;
+    private NhapKhoSanPhamController nhapKhoSanPhamController;
     
-    public fHomePageQLK() {
-        
+    public fHomePageQLK(String maNv) {
+        this.maNv = maNv;
         initComponents();
         setLocationRelativeTo(null);
         setupCardLayout();
         addSubPanel();
         setupMenu();
+        nhapKhoSanPhamController = new NhapKhoSanPhamController(pNhapSanPham, maNv);
     }
     
     public void setupCardLayout(){
@@ -37,20 +40,24 @@ public class fHomePageQLK extends javax.swing.JFrame {
     
     public void addSubPanel(){
         
-         pNhapSanPham = new pNhapSanPham();
+         pNhapSanPham = new pNhapSanPham(maNv);
         mainpanel.add(pNhapSanPham, "QuanLySp");
         
         
-         pNguyenVatLieu = new pNguyenVatLieu();
+         pNguyenVatLieu = new pNguyenVatLieu(maNv);
         mainpanel.add(pNguyenVatLieu, "QuanLyNvl");
         
-        pDonHang = new pDonHang();
+        pDonHang = new pDonHang(maNv);
         mainpanel.add(pDonHang, "QuanLyDonHang");
 
-       
-
-      
     }
+    
+    private void logOut() {                                             
+        this.setVisible(false);
+        this.dispose();
+        LoginForm loginForm = new LoginForm();
+        loginForm.setVisible(true);
+    }     
     
     private void setupMenu() {
         JMenuBar menuBar = new JMenuBar();
@@ -68,13 +75,14 @@ public class fHomePageQLK extends javax.swing.JFrame {
         JMenuItem menuItemDonHang = new JMenuItem("Quản lý Đơn Hàng");
         menuItemDonHang.addActionListener(e -> showPanel("QuanLyDonHang"));
         
-        
+        JMenuItem menuItemDangXuat = new JMenuItem("Đăng xuất");
+        menuItemDangXuat.addActionListener(e -> logOut());
         
         // Thêm các mục vào menu
         menuQuanLy.add(menuItemSp);
         menuQuanLy.add(menuItemNvl);
         menuQuanLy.add(menuItemDonHang);
-        
+        menuQuanLy.add(menuItemDangXuat);
 
         // Thêm menu vào thanh menu
         menuBar.add(menuQuanLy);
@@ -85,6 +93,12 @@ public class fHomePageQLK extends javax.swing.JFrame {
     
     // Phương thức chuyển đổi panel trong mainpanel
     private void showPanel(String panelName) {
+        switch (panelName) {
+                case "QuanLySp":
+                    nhapKhoSanPhamController.refreshDataTable("Tồn Kho");
+                    break;
+                
+            }
             cardLayout.show(mainpanel, panelName);
         }
 

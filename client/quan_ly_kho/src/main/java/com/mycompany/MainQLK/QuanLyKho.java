@@ -13,8 +13,8 @@ import java.sql.Connection;
  */
 public class QuanLyKho {
 
-    public static void main(String[] args) {
-        fHomePageQLK form = new fHomePageQLK();
+    public static void main(String[] args, String maNv) {
+        fHomePageQLK form = new fHomePageQLK(maNv);
         form.setVisible(true);
     }
 }
